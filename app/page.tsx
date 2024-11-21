@@ -1,3 +1,4 @@
+import ClientAuth from "@/components/client-auth";
 import Image from "next/image";
 
 export default function Home() {
