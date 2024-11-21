@@ -1,11 +1,18 @@
-import ClientAuth from "@/components/client-auth";
-import SignOutButton from "@/components/sign-out";
-import Image from "next/image";
+import Navbar from "@/components/navbar";
+import { stackServerApp } from "@/stack";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <SignOutButton />
-    </main>
-  );
+export default async function Home() {
+  const user = await stackServerApp.getUser();
+  if (!user) {
+    return (
+      <>
+        <Navbar />
+        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+          Welcome to online Trivia
+        </main>
+      </>
+    );
+  }
+  redirect("/dashboard");
 }
