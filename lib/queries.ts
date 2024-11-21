@@ -17,6 +17,20 @@ export const GET_QUOTE = gql`
 export const GET_MOVIE = gql`
   query ($name: String!) {
     movieInfo(name: $name) {
+      id
+      title
+      release_date
+      overview
+      vote_average
+      backdrop_path
+      poster_path
+    }
+  }
+`;
+
+export const GET_MOVIE_BY_ID = gql`
+  query ($id: Float!) {
+    movieById(id: $id) {
       title
       release_date
       overview
