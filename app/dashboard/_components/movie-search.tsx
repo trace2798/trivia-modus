@@ -1,8 +1,10 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { GET_MOVIE } from "@/lib/queries";
 import { useLazyQuery } from "@apollo/client";
+import { format } from "date-fns";
 import Link from "next/link";
 
 import { FC, useState } from "react";
@@ -35,7 +37,7 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
 
   const getPosterUrl = (posterPath: string) => {
     return posterPath
-      ? `https://image.tmdb.org/t/p/w200${posterPath}` 
+      ? `https://image.tmdb.org/t/p/w200${posterPath}`
       : "https://via.placeholder.com/200x300?text=No+Image";
   };
   return (
@@ -55,28 +57,31 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
 
       {movieInfo.length > 0 && (
         <div className="mt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
             {movieInfo.map((movie: any, index) => (
-              <div
+              <Card
                 key={index}
-                className="mb-4 border-b pb-4 flex flex-col justify-center items-center space-y-5"
+                className="w-full flex flex-col justify-between border-none"
               >
                 <Link href={`/dashboard/movie/${movie.id}`} className="w-full">
-                  <div className="w-full max-w-[250px] h-[300px] ">
-                    <img
-                      src={getPosterUrl(movie.poster_path)} // Render the poster
-                      alt={`${movie.title} Poster`}
-                      className=" rounded overflow-hidden w-[250px] h-[300px] object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col h-full text-center">
-                    <p>{movie.title} {movie.release_date} {movie.id}</p>
-                  </div>
-                  <div>
-                    <Button variant={"secondary"}>Read More</Button>
-                  </div>
+                  <CardContent className="px-0 ">
+                    <div className="w-full max-w-sm h-[300px]">
+                      <img
+                        src={getPosterUrl(movie.poster_path)}
+                        alt={`${movie.title} Poster`}
+                        className=" rounded overflow-hidden w-full h-[300px] object-cover"
+                      />
+                    </div>
+                  </CardContent>
+
+                  <CardFooter className="flex flex-col text-center p-0 pb-3">
+                    <p className="text-lg">{movie.title}</p>
+                    <p className="text-sm text-primary/80">
+                      {/* {format(new Date(movie.release_date), "MMMM d, yyyy")} */}
+                    </p>
+                  </CardFooter>
                 </Link>
-              </div>
+              </Card>
             ))}
           </div>
         </div>
@@ -86,3 +91,11 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
 };
 
 export default MovieSearch;
+
+// Get key from the foll0wing api
+// https://api.wikimedia.org/core/v1/wikipedia/en/search/page?q=Avatar+2009
+
+// https://api.wikimedia.org/core/v1/wikipedia/en/search/page?q=Avatar+2009+film
+
+// use key to get full page
+// https://api.wikimedia.org/core/v1/wikipedia/en/page/${encodeURIComponent(key)}

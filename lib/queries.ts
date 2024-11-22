@@ -40,3 +40,15 @@ export const GET_MOVIE_BY_ID = gql`
     }
   }
 `;
+
+export const GET_WIKI_INFO = gql`
+  query ($name: String!) {
+    wikipediaInfo(name: $name)
+  }
+`;
+
+export const GENERATE_TRIVIA = gql`
+  query ($prompt: String!) {
+    generateTrivia(prompt: $prompt)
+  }
+`;
