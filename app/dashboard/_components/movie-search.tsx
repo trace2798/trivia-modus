@@ -54,7 +54,7 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
         />
         <Button
           onClick={handleSearch}
-          disabled={loading}
+          disabled={loading || !movieName.trim()}
           className="max-w-[200px]"
         >
           {loading ? "Loading..." : "Search Movie"}

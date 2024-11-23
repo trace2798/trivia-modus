@@ -24,6 +24,7 @@ export const GET_MOVIE = gql`
       vote_average
       backdrop_path
       poster_path
+      tagline
     }
   }
 `;
@@ -37,6 +38,7 @@ export const GET_MOVIE_BY_ID = gql`
       vote_average
       backdrop_path
       poster_path
+      tagline
     }
   }
 `;
@@ -56,5 +58,20 @@ export const GENERATE_TRIVIA = gql`
 export const GET_USER_PROFILE = gql`
   query ($userId: String!, $email: String!, $name: String!) {
     userProfile(userId: $userId, email: $email, name: $name)
+  }
+`;
+
+export const GET_TOP_MOVIE = gql`
+  query {
+    topMovies {
+      id
+      title
+      release_date
+      overview
+      vote_average
+      backdrop_path
+      poster_path
+      tagline
+    }
   }
 `;

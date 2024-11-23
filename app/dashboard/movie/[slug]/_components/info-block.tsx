@@ -14,32 +14,35 @@ interface InfoBlockProps {
       vote_average: number;
       backdrop_path: string;
       poster_path: string;
+      tagline: string;
     };
   };
-  movieDataAsString: string;
+  movieDataAsString: string | null;
 }
 
 const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
   const movie = data.movieById;
   const formattedDate = format(new Date(movie.release_date), "MMMM d, yyyy");
-
-  // Generate star rating
   const maxStars = 10;
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [triviaQuestions, setTriviaQuestions] = useState<string | null>(null);
-
-  const [generateTrivia, { loading, error }] = useLazyQuery(GENERATE_TRIVIA, {
-    fetchPolicy: "no-cache",
-    onCompleted: (data) => {
-      console.log("Trivia DATA", data);
-      if (movieDataAsString) {
-        console.log("MOVIE INFO", movieDataAsString);
-        setTriviaQuestions(data.generateTrivia); // Set all movies
-      } else {
-        console.error("No movie information found:", data);
-      }
-    },
-  });
+  console.log("MOVIE DATA AS STRING", movieDataAsString);
+  const [generateTrivia, { loading, error, data: triviaData }] = useLazyQuery(
+    GENERATE_TRIVIA,
+    {
+      fetchPolicy: "no-cache",
+      onCompleted: (data) => {
+        console.log("Trivia DATA", data);
+        if (movieDataAsString) {
+          console.log("MOVIE INFO", movieDataAsString);
+          console.log("JSON QUESTION", JSON.parse(data.generateTrivia));
+          setTriviaQuestions(data.generateTrivia); // Set all movies
+        } else {
+          console.error("No movie information found:", data);
+        }
+      },
+    }
+  );
 
   const handleTriviaClick = async () => {
     generateTrivia({ variables: { prompt: movieDataAsString } });
@@ -76,23 +79,32 @@ const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
         <p className="text-sm md:text-lg max-w-3xl leading-relaxed">
           {movie.overview}
         </p>
+        <p>{movie.tagline}</p>
         <div>
-          {/* <Button onClick={() => handleTriviaClick()}>Start Trivia</Button> */}
-          <Button onClick={handleTriviaClick} disabled={loading}>
-            {loading ? "Generating Trivia..." : "Start Trivia"}
-          </Button>
+          {movieDataAsString &&
+            (() => {
+              const parsedMovieData = JSON.parse(movieDataAsString); // Parse the JSON string
+              return parsedMovieData.moviePlot &&
+                parsedMovieData.moviePlot !== "Plot not available" ? (
+                <Button onClick={handleTriviaClick} disabled={loading}>
+                  {loading ? "Generating Trivia..." : "Start Trivia"}
+                </Button>
+              ) : null;
+            })()}
           {error && <p className="text-red-500">Error: {error.message}</p>}
         </div>
       </div>
       {triviaQuestions && (
-        <div className="bg-white p-4 rounded-lg shadow-md">
+        <div className="bg-black p-4 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Trivia Questions</h2>
           <div className="space-y-4">
-            {triviaQuestions.split("\n").map((question: string, index: number) => (
-              <div key={index} className="bg-gray-100 p-4 rounded-lg">
-                <p className="text-lg font-semibold">{question}</p>
-              </div>
-            ))}
+            {triviaQuestions
+              .split("\n")
+              .map((question: string, index: number) => (
+                <div key={index} className=" p-4 rounded-lg">
+                  <p className="text-lg font-semibold">{question}</p>
+                </div>
+              ))}
           </div>
         </div>
       )}
