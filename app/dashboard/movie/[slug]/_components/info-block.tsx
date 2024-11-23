@@ -27,20 +27,7 @@ const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
   const maxStars = 10;
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [triviaQuestions, setTriviaQuestions] = useState<string | null>(null);
-  const [loadingTrivia, setLoadingTrivia] = useState(false);
 
-  // const handleTriviaClick = async () => {
-  //   setLoadingTrivia(true);
-  //   try {
-  //     const trivia = generateTrivia(movieDataAsString);
-  //     setTriviaQuestions(trivia);
-  //     console.log("Generated Trivia:", trivia);
-  //   } catch (error) {
-  //     console.error("Error generating trivia:", error);
-  //   } finally {
-  //     setLoadingTrivia(false);
-  //   }
-  // };
   const [generateTrivia, { loading, error }] = useLazyQuery(GENERATE_TRIVIA, {
     fetchPolicy: "no-cache",
     onCompleted: (data) => {
@@ -55,10 +42,6 @@ const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
   });
 
   const handleTriviaClick = async () => {
-    // if (!movieName.trim()) {
-    //   alert("Please enter a movie name!");
-    //   return;
-    // }
     generateTrivia({ variables: { prompt: movieDataAsString } });
   };
 
@@ -87,7 +70,7 @@ const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
                 </span>
               ))}{" "}
             </div>
-            <span>{movie.vote_average}</span>
+            <span>{movie.vote_average.toFixed(1)}</span>
           </div>
         </div>
         <p className="text-sm md:text-lg max-w-3xl leading-relaxed">
@@ -99,40 +82,20 @@ const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
             {loading ? "Generating Trivia..." : "Start Trivia"}
           </Button>
           {error && <p className="text-red-500">Error: {error.message}</p>}
-          {/* {triviaData && (
-            <div className="mt-4 bg-white p-4 rounded text-black">
-              <h3 className="text-lg font-bold">Trivia Questions:</h3>
-              <ul>
-                {triviaData.generateTrivia.questions.map(
-                  (q: any, idx: number) => (
-                    <li key={idx} className="mb-3">
-                      <p className="font-semibold">{q.question}</p>
-                      <ul className="list-disc ml-5">
-                        {q.options.map((option: string, index: number) => (
-                          <li key={index}>{option}</li>
-                        ))}
-                      </ul>
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          )} */}
         </div>
       </div>
-      {/* <div className="relative z-10 p-8 md:p-12 lg:p-16 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-xl font-semibold">Rating:</span>
-          <span className="text-2xl font-bold">{movie.vote_average}</span>
+      {triviaQuestions && (
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold mb-4">Trivia Questions</h2>
+          <div className="space-y-4">
+            {triviaQuestions.split("\n").map((question: string, index: number) => (
+              <div key={index} className="bg-gray-100 p-4 rounded-lg">
+                <p className="text-lg font-semibold">{question}</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div>
-          <img
-            className="w-24 md:w-36 lg:w-48 rounded-md shadow-lg"
-            src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-            alt={`${movie.title} Poster`}
-          />
-        </div>
-      </div> */}
+      )}
     </div>
   );
 };

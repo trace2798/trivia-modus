@@ -52,3 +52,9 @@ export const GENERATE_TRIVIA = gql`
     generateTrivia(prompt: $prompt)
   }
 `;
+
+export const GET_USER_PROFILE = gql`
+  query ($userId: String!, $email: String!, $name: String!) {
+    userProfile(userId: $userId, email: $email, name: $name)
+  }
+`;

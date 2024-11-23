@@ -4,6 +4,7 @@ import { stackServerApp } from "../stack";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +29,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <StackProvider app={stackServerApp}>
-            <StackTheme>{children}</StackTheme>
+            <StackTheme>{children} <Toaster /></StackTheme>
           </StackProvider>
         </ThemeProvider>
       </body>

@@ -2,12 +2,14 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 import { GET_MOVIE } from "@/lib/queries";
 import { useLazyQuery } from "@apollo/client";
 import { format } from "date-fns";
 import Link from "next/link";
 
 import { FC, useState } from "react";
+import { toast } from "sonner";
 
 interface MovieSearchProps {}
 
@@ -17,6 +19,7 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
 
   const [getMovie, { loading, error }] = useLazyQuery(GET_MOVIE, {
     fetchPolicy: "no-cache",
+    onError: (err) => toast.error("Something went wrong. Try Again"),
     onCompleted: (data) => {
       if (data && data.movieInfo) {
         console.log("MOVIE INFO", data.movieInfo);
@@ -42,18 +45,24 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
   };
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter movie name"
-        value={movieName}
-        onChange={(e) => setMovieName(e.target.value)} // Update the input state
-        className="border p-2 rounded w-full mb-4"
-      />
-      <Button onClick={handleSearch} disabled={loading}>
-        {loading ? "Loading..." : "Search Movie"}
-      </Button>
-
-      {error && <p className="text-red-500">Error: {error.message}</p>}
+      <div className="flex flex-col space-y-5">
+        <Input
+          type="text"
+          placeholder="Enter movie name"
+          value={movieName}
+          onChange={(e) => setMovieName(e.target.value)}
+        />
+        <Button
+          onClick={handleSearch}
+          disabled={loading}
+          className="max-w-[200px]"
+        >
+          {loading ? "Loading..." : "Search Movie"}
+        </Button>
+        {error && (
+          <p className="text-red-500">Error: Something went wrong. Try Again</p>
+        )}
+      </div>
 
       {movieInfo.length > 0 && (
         <div className="mt-4">

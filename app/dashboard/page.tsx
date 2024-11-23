@@ -1,20 +1,28 @@
 // "use client";
-import { Button } from "@/components/ui/button";
-import { getClient } from "@/lib/apollo-client";
 import { FC } from "react";
-import QuoteButton from "./_components/quote-button";
 import MovieSearch from "./_components/movie-search";
+import { stackServerApp } from "@/stack";
+import { getClient } from "@/lib/apollo-client";
+import { GET_USER_PROFILE } from "@/lib/queries";
 
 interface PageProps {}
 
-const Page: FC<PageProps> = ({}) => {
+const Page: FC<PageProps> = async ({}) => {
+  const user = await stackServerApp.getUser();
+  console.log("USER", user);
+  const { data } = await getClient().query({
+    query: GET_USER_PROFILE,
+    variables: {
+      userId: user?.id,
+      email: user?.primaryEmail,
+      name: user?.displayName,
+    },
+  });
+  console.log("DATA", data);
   return (
     <>
       <div className="p-12">
-        {/* Dashboard Page */}
-        {/* <QuoteButton /> */}
-        <MovieSearch/>
-        {/* <Button onClick={() => handleClick()}>Get Random Quote</Button> */}
+        <MovieSearch />
       </div>
     </>
   );
