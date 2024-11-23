@@ -52,6 +52,7 @@ import { GET_MOVIE_BY_ID, GET_WIKI_INFO } from "@/lib/queries";
 import { format } from "date-fns";
 import { FC } from "react";
 import InfoBlock from "./_components/info-block";
+import Link from "next/link";
 
 interface pageProps {
   params: {
@@ -105,8 +106,11 @@ const page: FC<pageProps> = async ({ params }) => {
   } catch (error) {
     console.error("Failed to fetch movie data:", error);
     return (
-      <div>
+      <div className="flex flex-col items-center justify-center h-screen">
         <p>Failed to load the movie page. Please try again later.</p>
+        <Link href="/dashboard" className="mt-4">
+          Go Back to Dashboard
+        </Link>
       </div>
     );
   }

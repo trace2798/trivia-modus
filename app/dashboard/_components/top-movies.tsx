@@ -1,36 +1,15 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { GET_MOVIE, GET_TOP_MOVIE } from "@/lib/queries";
-import { useLazyQuery } from "@apollo/client";
-import { format } from "date-fns";
 import Link from "next/link";
 
-import { FC, useState } from "react";
-import { toast } from "sonner";
+import { FC } from "react";
 
 interface MovieSearchProps {
   movieInfo: any;
 }
 
 const TopMovie: FC<MovieSearchProps> = ({ movieInfo }) => {
-  //   const [movieInfo, setMovieInfo] = useState([]);
-
-  //   const [topMovie, { loading, error }] = useLazyQuery(GET_TOP_MOVIE, {
-  //     fetchPolicy: "no-cache",
-  //     onError: (err) => toast.error("Something went wrong. Try Again"),
-  //     onCompleted: (data) => {
-  //       if (data && data.movieInfo) {
-  //         console.log("MOVIE INFO", data.movieInfo);
-  //         setMovieInfo(data.movieInfo); // Set all movies
-  //       } else {
-  //         console.error("No movie information found:", data);
-  //       }
-  //     },
-  //   });
-
   const getPosterUrl = (posterPath: string) => {
     return posterPath
       ? `https://image.tmdb.org/t/p/w200${posterPath}`
@@ -57,9 +36,9 @@ const TopMovie: FC<MovieSearchProps> = ({ movieInfo }) => {
                     </div>
                   </CardContent>
 
-                  <CardFooter className="flex flex-col text-center p-0 pb-3">
+                  <CardFooter className="flex flex-col text-center p-0 pb-3 space-y-1">
                     <p className="text-lg">{movie.title}</p>
-                    <p className="text-sm text-primary/80"></p>
+                    <p className="text-sm text-primary/80">{movie.vote_average}</p>
                   </CardFooter>
                 </Link>
               </Card>

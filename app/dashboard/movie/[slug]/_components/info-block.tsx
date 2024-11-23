@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
 import { useLazyQuery } from "@apollo/client";
 import { GENERATE_TRIVIA } from "@/lib/queries";
+import { toast } from "sonner";
 
 interface InfoBlockProps {
   data: {
@@ -26,7 +27,7 @@ const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
   const maxStars = 10;
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [triviaQuestions, setTriviaQuestions] = useState<string | null>(null);
-  console.log("MOVIE DATA AS STRING", movieDataAsString);
+  // console.log("MOVIE DATA AS STRING", movieDataAsString);
   const [generateTrivia, { loading, error, data: triviaData }] = useLazyQuery(
     GENERATE_TRIVIA,
     {
@@ -34,11 +35,12 @@ const InfoBlock: FC<InfoBlockProps> = ({ data, movieDataAsString }) => {
       onCompleted: (data) => {
         console.log("Trivia DATA", data);
         if (movieDataAsString) {
-          console.log("MOVIE INFO", movieDataAsString);
-          console.log("JSON QUESTION", JSON.parse(data.generateTrivia));
+          // console.log("MOVIE INFO", movieDataAsString);
+          // console.log("JSON QUESTION", JSON.parse(data.generateTrivia));
           setTriviaQuestions(data.generateTrivia); // Set all movies
         } else {
           console.error("No movie information found:", data);
+          toast.error("Failed to generate trivia questions.");
         }
       },
     }
