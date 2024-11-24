@@ -49,9 +49,34 @@ export const GET_WIKI_INFO = gql`
   }
 `;
 
+// export const GENERATE_TRIVIA = gql`
+//   query ($prompt: String!) {
+//     generateTrivia(prompt: $prompt)
+//   }
+// `;
 export const GENERATE_TRIVIA = gql`
   query ($prompt: String!) {
-    generateTrivia(prompt: $prompt)
+    generateTrivia(prompt: $prompt) {
+      question
+      options
+      answer
+      difficulty
+      category
+    }
+  }
+`;
+
+export const CREATE_GAME = gql`
+  mutation CreateGameAndInsertQuestions(
+    $movieId: String!
+    $movieTitle: String!
+    $questions: [TriviaQuestionInput!]!
+  ) {
+    createGameAndInsertQuestions(
+      movieId: $movieId
+      movieTitle: $movieTitle
+      questions: $questions
+    )
   }
 `;
 
@@ -72,6 +97,19 @@ export const GET_TOP_MOVIE = gql`
       backdrop_path
       poster_path
       tagline
+    }
+  }
+`;
+
+export const GET_QUESTIONS_BY_GAME_ID = gql`
+  query ($gameId: String!) {
+    findQuestionById(gameId: $gameId) {
+      id
+      question_text
+      options
+      correct_answer
+      difficulty
+      category
     }
   }
 `;

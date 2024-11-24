@@ -12,11 +12,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { UserButton } from "@stackframe/stack";
-import { stackServerApp } from "@/stack";
-import { getClient } from "@/lib/apollo-client";
-import { GET_USER_PROFILE } from "@/lib/queries";
 
-// Menu items.
 const items = [
   {
     title: "Dashboard",
@@ -31,17 +27,6 @@ const items = [
 ];
 
 export async function AppSidebar() {
-  const user = await stackServerApp.getUser();
-  console.log("USER", user);
-  const { data } = await getClient().query({
-    query: GET_USER_PROFILE,
-    variables: {
-      userId: user?.id,
-      email: user?.primaryEmail,
-      name: user?.displayName,
-    },
-  });
-  console.log("SIDEBAR", data)
   return (
     <Sidebar>
       <SidebarContent>
@@ -67,9 +52,6 @@ export async function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <UserButton />
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            {data.userProfile}
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>

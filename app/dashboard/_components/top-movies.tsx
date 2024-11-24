@@ -38,7 +38,7 @@ const TopMovie: FC<MovieSearchProps> = ({ movieInfo }) => {
 
                   <CardFooter className="flex flex-col text-center p-0 pb-3 space-y-1">
                     <p className="text-lg">{movie.title}</p>
-                    <p className="text-sm text-primary/80">{movie.vote_average}</p>
+                    <p className="text-sm text-primary/80">{movie.vote_average.toFixed(1)}</p>
                   </CardFooter>
                 </Link>
               </Card>
