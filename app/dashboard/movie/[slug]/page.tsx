@@ -12,6 +12,9 @@ interface pageProps {
   };
 }
 
+export const dynamic = "force-dynamic";
+
+
 const page: FC<pageProps> = async ({ params }) => {
   try {
     const { data } = await getClient().query({

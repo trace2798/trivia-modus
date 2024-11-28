@@ -6,6 +6,7 @@ import { FC } from "react";
 import QuestionFE from "./_components/question-fe";
 
 interface PageProps {}
+export const dynamic = "force-dynamic";
 
 const Page: FC<PageProps> = async ({}) => {
   const topMoviesData = TopMovies;

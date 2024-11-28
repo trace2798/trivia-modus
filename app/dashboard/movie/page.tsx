@@ -5,6 +5,7 @@ import { getClient } from "@/lib/apollo-client";
 import { GET_TOP_MOVIE } from "@/lib/queries";
 
 interface PageProps {}
+export const dynamic = "force-dynamic";
 
 const Page: FC<PageProps> = async ({}) => {
   const { data: topMovie } = await getClient().query({

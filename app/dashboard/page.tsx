@@ -8,6 +8,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 interface PageProps {}
+export const dynamic = "force-dynamic";
 
 const Page: FC<PageProps> = async ({}) => {
   const user = await stackServerApp.getUser();
