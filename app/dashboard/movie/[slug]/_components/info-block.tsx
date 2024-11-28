@@ -3,7 +3,8 @@ import { Button } from "@/components/ui/button";
 import { CREATE_GAME, GENERATE_TRIVIA } from "@/lib/queries";
 import { useLazyQuery, useMutation } from "@apollo/client";
 import { format } from "date-fns";
-import { FC, useState } from "react";
+import { useRouter } from "next/navigation";
+import { FC, use, useState } from "react";
 import { toast } from "sonner";
 
 interface InfoBlockProps {
@@ -37,6 +38,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
   movieId,
 }) => {
   const movie = data.movieById;
+  const router = useRouter();
   const formattedDate = format(new Date(movie.release_date), "MMMM d, yyyy");
   const maxStars = 10;
   const stars = Math.round((movie.vote_average / 10) * maxStars);
@@ -70,12 +72,12 @@ const InfoBlock: FC<InfoBlockProps> = ({
   ] = useMutation(CREATE_GAME, {
     onCompleted: (data) => {
       console.log("Mutation completed:", data);
-      console.log(
-        "Game created with ID:",
-        data.createGameAndInsertQuestions
-      );
+      console.log("Game created with ID:", data.createGameAndInsertQuestions);
       toast.success(
         `Game created successfully! Game ID: ${data.createGameAndInsertQuestions}`
+      );
+      router.push(
+        `/dashboard/movie/${movieId}/trivia/${data.createGameAndInsertQuestions}`
       );
       // Proceed with navigation or other actions
     },
@@ -93,7 +95,9 @@ const InfoBlock: FC<InfoBlockProps> = ({
       //   questions: questions,
       // };
       // await createGameAndInsertQuestions({ variables: payload });
-      const cleanedQuestions = questions.map(({ __typename, ...q }) => q);
+      const cleanedQuestions = questions.map(
+        ({ __typename, ...q }: { __typename?: string }) => q
+      );
 
       // Prepare the data to send
       const payload = {
@@ -101,9 +105,8 @@ const InfoBlock: FC<InfoBlockProps> = ({
         movieTitle: data.movieById.title as string,
         questions: cleanedQuestions,
       };
-  
+
       await createGameAndInsertQuestions({ variables: payload });
-  
     } catch (error) {
       console.error("Error saving game and questions:", error);
       toast.error("Error saving game and trivia questions.");

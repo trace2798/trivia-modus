@@ -113,3 +113,17 @@ export const GET_QUESTIONS_BY_GAME_ID = gql`
     }
   }
 `;
+
+export const GENERATE_TRIVIA_TOP_MOVIE = gql`
+  query ($title: String!, $overview: String!, $releaseDate: String!) {
+    generateTriviaFromData(
+      title: $title
+      overview: $overview
+      releaseDate: $releaseDate
+    ) {
+      question
+      options
+      answer
+    }
+  }
+`;

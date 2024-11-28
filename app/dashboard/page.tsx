@@ -1,10 +1,11 @@
-// "use client";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 import { getClient } from "@/lib/apollo-client";
-import { GET_TOP_MOVIE, GET_USER_PROFILE } from "@/lib/queries";
+import { GET_USER_PROFILE } from "@/lib/queries";
+import { TopMovies } from "@/lib/top-movies";
 import { stackServerApp } from "@/stack";
+import Link from "next/link";
 import { FC } from "react";
-import MovieSearch from "./_components/movie-search";
-import TopMovie from "./_components/top-movies";
 
 interface PageProps {}
 
@@ -21,16 +22,33 @@ const Page: FC<PageProps> = async ({}) => {
   });
   console.log("DATA", data);
 
-  const { data: topMovie } = await getClient().query({
-    query: GET_TOP_MOVIE,
-  });
-  // console.log("TOP MOVIE", topMovie);
-  // console.log("TOP MOVIE ARRAY", topMovie?.topMovies);
   return (
     <>
-      <div className="p-12">
-        <MovieSearch />
-        <TopMovie movieInfo={topMovie?.topMovies} />
+      <div className="flex flex-col text-4xl p-12 space-y-6">
+        <h1>Welcome</h1>
+        <Separator />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-12 w-full gap-10">
+        <Link href={`/dashboard/movie`}>
+          <Card className="hover:cursor-pointer">
+            <CardHeader>
+              <CardTitle>Movie</CardTitle>
+            </CardHeader>
+          </Card>
+        </Link>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Modus</CardTitle>
+          </CardHeader>
+        </Card>
+        <Link href={`/dashboard/top-movie`}>
+          <Card>
+            <CardHeader>
+              <CardTitle>Top movie trivia</CardTitle>
+            </CardHeader>
+          </Card>
+        </Link>
       </div>
     </>
   );
