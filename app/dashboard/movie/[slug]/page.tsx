@@ -11,7 +11,7 @@ interface pageProps {
     slug: string;
   };
 }
-
+export const maxDuration = 60;
 export const dynamic = "force-dynamic";
 
 

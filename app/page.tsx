@@ -2,6 +2,7 @@ import Navbar from "@/components/navbar";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 
+
 export default async function Home() {
   const user = await auth();
   console.log("USER INFO", user);
@@ -44,7 +45,7 @@ export default async function Home() {
               for Backend.
             </p>
             <p className="text-primary/80 text-lg">
-              Hashnode Article: 
+              Hashnode Article:
               <a
                 href="https://docs.hypermode.com/modus/overview"
                 target="_blank"

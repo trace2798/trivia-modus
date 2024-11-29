@@ -8,6 +8,7 @@ interface PageProps {
     triviaId: string;
   };
 }
+
 export const dynamic = "force-dynamic";
 
 const Page: FC<PageProps> = async ({ params }) => {
