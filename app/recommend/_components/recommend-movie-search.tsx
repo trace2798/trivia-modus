@@ -1,15 +1,16 @@
 "use client";
-
 import { recommendMovie } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
+  CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { FC, useState } from "react";
 import { toast } from "sonner";
@@ -21,21 +22,19 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
   const [movieInfo, setMovieInfo] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-
+  const user = useUser();
+  console.log("USER", user.isSignedIn);
   const handleSearch = async () => {
     if (!movieName.trim()) {
       alert("Please enter a movie name!");
       return;
     }
-
     console.log("MOVIE NAME", movieName);
     setLoading(true);
 
     try {
       const response = await recommendMovie({ query: movieName });
       const data = await response.data;
-
-      // Navigate to the search results
       if (data && data.searchMovie && data.searchMovie.searchObjs) {
         const movies = data.searchMovie.searchObjs.map((obj: any) => ({
           id: obj.movie.id,
@@ -44,10 +43,7 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
           release_date: obj.movie.release_date,
           score: obj.score,
         }));
-
         console.log("MOVIE INFO", movies);
-
-        // Set movieInfo to the list of movies
         setMovieInfo(movies);
         toast.success("Movies found successfully!");
       } else {
@@ -84,9 +80,12 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
       </div>
       <div>
         {loading && (
-          <div>
+          <div className="flex flex-col space-y-3">
             {" "}
-            <Skeleton className="size-60 mt-5" />{" "}
+            <Skeleton className="w-full h-60 mt-5" />{" "}
+            <Skeleton className="w-full h-60 mt-5" />{" "}
+            <Skeleton className="w-full h-60 mt-5" />{" "}
+            <Skeleton className="w-full h-60 mt-5" />{" "}
           </div>
         )}
       </div>
@@ -106,8 +105,19 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
                     <CardTitle>{movie.title}</CardTitle>
                     <CardDescription>{movie.overview}</CardDescription>
                   </CardHeader>
-                  {/* <CardContent className="px-0 ">{movie.overview}</CardContent>
-                  <CardFooter className="flex flex-col p-0 pb-3"></CardFooter> */}
+                  <CardFooter>
+                    {user.isSignedIn ? (
+                      <Button variant="outline" className="w-full max-w-[150px]" asChild>
+                        <Link href={`/dashboard/movie/${parseInt(movie.id)}`}>
+                          Read More
+                        </Link>
+                      </Button>
+                    ) : (
+                      <Button variant="outline" className="w-full" asChild>
+                        <Link href="/sign-in">Login to Read More</Link>
+                      </Button>
+                    )}
+                  </CardFooter>
                 </Link>
               </Card>
             ))}

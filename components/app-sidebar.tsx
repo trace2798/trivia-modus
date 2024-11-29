@@ -1,4 +1,8 @@
-import { Clapperboard, LayoutDashboard, LogOutIcon, Search, Settings } from "lucide-react";
+import {
+  Clapperboard,
+  LayoutDashboard,
+  Search
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -11,8 +15,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { SignOutButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs/server";
-import { SignOutButton, useUser } from "@clerk/nextjs";
 import UserButton from "./user-button";
 // import { UserButton } from "@stackframe/stack";
 
@@ -32,11 +36,7 @@ const items = [
     url: "/recommend",
     icon: Clapperboard,
   },
-  // {
-  //   title: "Settings",
-  //   url: "/settings",
-  //   icon: Settings,
-  // },
+
 ];
 
 export async function AppSidebar() {
@@ -46,7 +46,7 @@ export async function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-3xl">Trivia</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-3xl">Rec & Triv</SidebarGroupLabel>
           <SidebarGroupContent className="mt-3">
             <SidebarMenu className="flex flex-col space-y-3">
               {items.map((item) => (
