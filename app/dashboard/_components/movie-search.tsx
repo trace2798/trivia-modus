@@ -5,9 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
-import { GET_MOVIE } from "@/lib/queries";
-import { useLazyQuery } from "@apollo/client";
-import { format, set } from "date-fns";
 import Link from "next/link";
 
 import { FC, useState } from "react";

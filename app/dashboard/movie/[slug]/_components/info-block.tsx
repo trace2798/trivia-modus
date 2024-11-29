@@ -1,8 +1,9 @@
 "use client";
+import { generateTrivia } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { CREATE_GAME, GENERATE_TRIVIA } from "@/lib/queries";
 import { useLazyQuery, useMutation } from "@apollo/client";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 import { useRouter } from "next/navigation";
 import { FC, useState } from "react";
 import { toast } from "sonner";
@@ -43,30 +44,31 @@ const InfoBlock: FC<InfoBlockProps> = ({
   const maxStars = 10;
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [triviaQuestions, setTriviaQuestions] = useState<TriviaQuestion[]>([]);
+  const [loading, setLoading] = useState(false);
   console.log("TRIVIA QUESTIONS", triviaQuestions);
-  const [generateTrivia, { loading, error, data: triviaData }] = useLazyQuery(
-    GENERATE_TRIVIA,
-    {
-      fetchPolicy: "no-cache",
-      onCompleted: (data) => {
-        console.log("Trivia DATA from LLM", data.generateTrivia);
-        if (data.generateTrivia) {
-          try {
-            setTriviaQuestions(data.generateTrivia);
-            toast.success("Trivia questions generated successfully!");
-            toast.success("Sending to backend to generate quiz");
-            sendQuestionsToBackend(data.generateTrivia);
-          } catch (e) {
-            console.error("Failed to parse JSON:", e);
-            toast.error("Failed to parse trivia questions.");
-          }
-        } else {
-          console.error("No movie information found:", data);
-          toast.error("Failed to generate trivia questions.");
-        }
-      },
-    }
-  );
+  // const [generateTrivia, { loading, error, data: triviaData }] = useLazyQuery(
+  //   GENERATE_TRIVIA,
+  //   {
+  //     fetchPolicy: "no-cache",
+  //     onCompleted: (data) => {
+  //       console.log("Trivia DATA from LLM", data.generateTrivia);
+  //       if (data.generateTrivia) {
+  //         try {
+  //           setTriviaQuestions(data.generateTrivia);
+  //           toast.success("Trivia questions generated successfully!");
+  //           toast.success("Sending to backend to generate quiz");
+  //           sendQuestionsToBackend(data.generateTrivia);
+  //         } catch (e) {
+  //           console.error("Failed to parse JSON:", e);
+  //           toast.error("Failed to parse trivia questions.");
+  //         }
+  //       } else {
+  //         console.error("No movie information found:", data);
+  //         toast.error("Failed to generate trivia questions.");
+  //       }
+  //     },
+  //   }
+  // );
   const [
     createGameAndInsertQuestions,
     { data: mutationData, loading: mutationLoading, error: mutationError },
@@ -105,11 +107,18 @@ const InfoBlock: FC<InfoBlockProps> = ({
     }
   };
   const handleTriviaClick = async () => {
-    generateTrivia({
-      variables: {
-        prompt: `Here is the content of the movie: ${movieDataAsString}`,
-      },
+    // generateTrivia({
+    //   variables: {
+    //     prompt: `Here is the content of the movie: ${movieDataAsString}`,
+    //   },
+    // });
+    console.log("TRIVIA CLICKED");
+    setLoading(true);
+    const generateTriviaResponse = await generateTrivia({
+      prompt: `Here is the content of the movie: ${movieDataAsString}`,
     });
+    setLoading(false);
+    console.log("TRIVIA RESPONSE", generateTriviaResponse);
   };
 
   return (
@@ -145,7 +154,10 @@ const InfoBlock: FC<InfoBlockProps> = ({
         </p>
         <p>{movie.tagline}</p>
         <div>
-          {movieDataAsString &&
+          <Button onClick={handleTriviaClick} disabled={loading}>
+            Trivia
+          </Button>
+          {/* {movieDataAsString &&
             (() => {
               const parsedMovieData = JSON.parse(movieDataAsString); // Parse the JSON string
               return parsedMovieData.moviePlot &&
@@ -159,8 +171,8 @@ const InfoBlock: FC<InfoBlockProps> = ({
                     : "Start Trivia"}
                 </Button>
               ) : null;
-            })()}
-          {error && <p className="text-red-500">Error: {error.message}</p>}
+            })()} */}
+          {/* {error && <p className="text-red-500">Error: {error.message}</p>} */}
         </div>
       </div>
       {triviaQuestions && (

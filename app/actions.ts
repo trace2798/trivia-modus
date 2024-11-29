@@ -1,7 +1,7 @@
 "use server";
 
 import { getClient } from "@/lib/apollo-client";
-import { GET_MOVIE, GET_QUOTE } from "@/lib/queries";
+import { GENERATE_TRIVIA, GET_MOVIE, GET_QUOTE } from "@/lib/queries";
 
 type FetchQueryProps = {
   query: string;
@@ -74,5 +74,17 @@ export const getMovieBySearch = async ({
     variables: { name: movieName },
   });
   console.log("MOVIE INFO SEARCH ACTION", data);
+  return { data, error };
+};
+
+export const generateTrivia = async ({
+  prompt: prompt,
+}: {
+  prompt: string;
+}) => {
+  const { data, error } = await getClient().query({
+    query: GENERATE_TRIVIA,
+    variables: { prompt },
+  });
   return { data, error };
 };
