@@ -1,7 +1,12 @@
 "use server";
 
 import { getClient } from "@/lib/apollo-client";
-import { GENERATE_TRIVIA, GET_MOVIE, GET_QUOTE } from "@/lib/queries";
+import {
+  CREATE_GAME,
+  GENERATE_TRIVIA,
+  GET_MOVIE,
+  GET_QUOTE,
+} from "@/lib/queries";
 
 type FetchQueryProps = {
   query: string;
@@ -87,4 +92,23 @@ export const generateTrivia = async ({
     variables: { prompt },
   });
   return { data, error };
+};
+
+type CreateGameAndInsertQuestionsPayload = {
+  movieId: string;
+  movieTitle: string;
+  questions: any;
+};
+
+export const createGameAndInsertQuestions = async ({
+  payload: payload,
+}: {
+  payload: CreateGameAndInsertQuestionsPayload;
+}) => {
+  console.log("createGameAndInsertQuestions ACTION", payload);
+  const { data, errors } = await getClient().mutate({
+    mutation: CREATE_GAME,
+    variables: { ...payload },
+  });
+  return { data, errors };
 };

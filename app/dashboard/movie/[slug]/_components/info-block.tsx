@@ -1,5 +1,5 @@
 "use client";
-import { generateTrivia } from "@/app/actions";
+import { createGameAndInsertQuestions, generateTrivia } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { CREATE_GAME, GENERATE_TRIVIA } from "@/lib/queries";
 import { useLazyQuery, useMutation } from "@apollo/client";
@@ -45,7 +45,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [triviaQuestions, setTriviaQuestions] = useState<TriviaQuestion[]>([]);
   const [loading, setLoading] = useState(false);
-  console.log("TRIVIA QUESTIONS", triviaQuestions);
+
   // const [generateTrivia, { loading, error, data: triviaData }] = useLazyQuery(
   //   GENERATE_TRIVIA,
   //   {
@@ -55,9 +55,9 @@ const InfoBlock: FC<InfoBlockProps> = ({
   //       if (data.generateTrivia) {
   //         try {
   //           setTriviaQuestions(data.generateTrivia);
-  //           toast.success("Trivia questions generated successfully!");
-  //           toast.success("Sending to backend to generate quiz");
-  //           sendQuestionsToBackend(data.generateTrivia);
+  // toast.success("Trivia questions generated successfully!");
+  // toast.success("Sending to backend to generate quiz");
+  // sendQuestionsToBackend(data.generateTrivia);
   //         } catch (e) {
   //           console.error("Failed to parse JSON:", e);
   //           toast.error("Failed to parse trivia questions.");
@@ -69,56 +69,75 @@ const InfoBlock: FC<InfoBlockProps> = ({
   //     },
   //   }
   // );
-  const [
-    createGameAndInsertQuestions,
-    { data: mutationData, loading: mutationLoading, error: mutationError },
-  ] = useMutation(CREATE_GAME, {
-    onCompleted: (data) => {
-      console.log("Mutation completed:", data);
-      console.log("Game created with ID:", data.createGameAndInsertQuestions);
-      toast.success(
-        `Game created successfully! Game ID: ${data.createGameAndInsertQuestions}`
-      );
-      router.push(
-        `/dashboard/movie/${movieId}/trivia/${data.createGameAndInsertQuestions}`
-      );
-      // Proceed with navigation or other actions
-    },
-    onError: (error) => {
-      console.error("Error creating game:", error);
-      toast.error("Error saving game and trivia questions.");
-    },
-  });
+  // const [
+  //   createGameAndInsertQuestions,
+  //   { data: mutationData, loading: mutationLoading, error: mutationError },
+  // ] = useMutation(CREATE_GAME, {
+  //   onCompleted: (data) => {
+  //     console.log("Mutation completed:", data);
+  //     console.log("Game created with ID:", data.createGameAndInsertQuestions);
+  //     toast.success(
+  //       `Game created successfully! Game ID: ${data.createGameAndInsertQuestions}`
+  //     );
+  //     router.push(
+  //       `/dashboard/movie/${movieId}/trivia/${data.createGameAndInsertQuestions}`
+  //     );
+  //     // Proceed with navigation or other actions
+  //   },
+  //   onError: (error) => {
+  //     console.error("Error creating game:", error);
+  //     toast.error("Error saving game and trivia questions.");
+  //   },
+  // });
   const sendQuestionsToBackend = async (questions: any) => {
     try {
-      const cleanedQuestions = questions.map(
+      console.log("SENDING QUESTIONS TO BACKEND", questions);
+      console.log("TRIVIA QUESTIONS", triviaQuestions);
+      const cleanedQuestions = questions.generateTrivia.map(
         ({ __typename, ...q }: { __typename?: string }) => q
       );
+      console.log("CLEANED QUESTIONS", cleanedQuestions);
       const payload = {
         movieId: movieId as string, // Ensure this ID is available and an integer
         movieTitle: data.movieById.title as string,
         questions: cleanedQuestions,
       };
-
-      await createGameAndInsertQuestions({ variables: payload });
+      console.log("PAYLOAD to backend", payload);
+      const gameCreateResponse = await createGameAndInsertQuestions({
+        payload,
+      });
+      console.log("GAME CREATE RESPONSE", gameCreateResponse.data);
+      if (gameCreateResponse.data) {
+        toast.success(
+          `Game created successfully! Game ID: ${gameCreateResponse.data.createGameAndInsertQuestions}`
+        );
+        router.push(
+          `/dashboard/movie/${movieId}/trivia/${gameCreateResponse.data.createGameAndInsertQuestions}`
+        );
+      } else {
+        console.error("No game ID received:", gameCreateResponse);
+        toast.error("Failed to create game.");
+      }
     } catch (error) {
       console.error("Error saving game and questions:", error);
       toast.error("Error saving game and trivia questions.");
     }
   };
   const handleTriviaClick = async () => {
-    // generateTrivia({
-    //   variables: {
-    //     prompt: `Here is the content of the movie: ${movieDataAsString}`,
-    //   },
-    // });
     console.log("TRIVIA CLICKED");
     setLoading(true);
     const generateTriviaResponse = await generateTrivia({
       prompt: `Here is the content of the movie: ${movieDataAsString}`,
     });
+    console.log("TRIVIA RESPONSE", generateTriviaResponse.data);
+    toast.success("Trivia questions generated successfully!");
+    toast.success("Sending to backend to generate quiz");
+    console.log("SENDING QUESTIONS TO BACKEND", generateTriviaResponse.data);
+    const createGame = await sendQuestionsToBackend(
+      generateTriviaResponse.data
+    );
+    console.log("CREATE GAME RESPONSE", createGame);
     setLoading(false);
-    console.log("TRIVIA RESPONSE", generateTriviaResponse);
   };
 
   return (
