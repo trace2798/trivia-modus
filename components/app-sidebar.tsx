@@ -1,4 +1,4 @@
-import { LayoutDashboard, LogOutIcon, Settings } from "lucide-react";
+import { Clapperboard, LayoutDashboard, LogOutIcon, Search, Settings } from "lucide-react";
 
 import {
   Sidebar,
@@ -23,10 +23,20 @@ const items = [
     icon: LayoutDashboard,
   },
   {
-    title: "Settings",
-    url: "/settings",
-    icon: Settings,
+    title: "Search Movie",
+    url: "/dashboard/movie",
+    icon: Search,
   },
+  {
+    title: "Recommend",
+    url: "/recommend",
+    icon: Clapperboard,
+  },
+  // {
+  //   title: "Settings",
+  //   url: "/settings",
+  //   icon: Settings,
+  // },
 ];
 
 export async function AppSidebar() {

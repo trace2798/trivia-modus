@@ -5,7 +5,7 @@ import {
   CREATE_GAME,
   GENERATE_TRIVIA,
   GET_MOVIE,
-  GET_QUOTE,
+  RECOMMEND_MOVIE,
 } from "@/lib/queries";
 
 type FetchQueryProps = {
@@ -109,6 +109,14 @@ export const createGameAndInsertQuestions = async ({
   const { data, errors } = await getClient().mutate({
     mutation: CREATE_GAME,
     variables: { ...payload },
+  });
+  return { data, errors };
+};
+
+export const recommendMovie = async ({ query: query }: { query: string }) => {
+  const { data, errors } = await getClient().query({
+    query: RECOMMEND_MOVIE,
+    variables: { query },
   });
   return { data, errors };
 };

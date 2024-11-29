@@ -141,3 +141,20 @@ export const CREATE_GAME_TOP = gql`
     )
   }
 `;
+
+export const RECOMMEND_MOVIE = gql`
+  query ($query: String!) {
+    searchMovie(query: $query) {
+      collection
+      searchObjs {
+        score
+        movie {
+          title
+          id
+          overview
+          release_date
+        }
+      }
+    }
+  }
+`;

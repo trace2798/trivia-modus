@@ -6,7 +6,6 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
 import Link from "next/link";
-
 import { FC, useState } from "react";
 import { toast } from "sonner";
 
@@ -117,11 +116,3 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
 };
 
 export default MovieSearch;
-
-// Get key from the foll0wing api
-// https://api.wikimedia.org/core/v1/wikipedia/en/search/page?q=Avatar+2009
-
-// https://api.wikimedia.org/core/v1/wikipedia/en/search/page?q=Avatar+2009+film
-
-// use key to get full page
-// https://api.wikimedia.org/core/v1/wikipedia/en/page/${encodeURIComponent(key)}
