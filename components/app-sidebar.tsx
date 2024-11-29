@@ -11,7 +11,10 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { UserButton } from "@stackframe/stack";
+import { auth } from "@clerk/nextjs/server";
+import { SignOutButton, useUser } from "@clerk/nextjs";
+import UserButton from "./user-button";
+// import { UserButton } from "@stackframe/stack";
 
 const items = [
   {
@@ -27,6 +30,8 @@ const items = [
 ];
 
 export async function AppSidebar() {
+  const { userId, redirectToSignIn } = await auth();
+  console.log("USER ID Side bar", userId);
   return (
     <Sidebar>
       <SidebarContent>
@@ -51,14 +56,16 @@ export async function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
+            {/* <UserButton /> */}
             <UserButton />
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <a href={`/handler/sign-out`}>
+              {/* <a href={`/handler/sign-out`}>
                 <LogOutIcon />
                 <span>Sign Out</span>
-              </a>
+              </a> */}
+              <SignOutButton />
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

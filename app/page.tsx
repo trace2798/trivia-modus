@@ -1,10 +1,9 @@
 import Navbar from "@/components/navbar";
-import { stackServerApp } from "@/stack";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
-  const user = await stackServerApp.getUser();
-  if (!user) {
+  // const user = await stackServerApp.getUser();
+  // if (!user) {
     return (
       <>
         <Navbar />
@@ -14,5 +13,5 @@ export default async function Home() {
       </>
     );
   }
-  redirect("/dashboard");
-}
+  // redirect("/dashboard");
+// }

@@ -2,8 +2,7 @@ import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { getClient } from "@/lib/apollo-client";
 import { GET_USER_PROFILE } from "@/lib/queries";
-import { TopMovies } from "@/lib/top-movies";
-import { stackServerApp } from "@/stack";
+import { currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -11,14 +10,16 @@ interface PageProps {}
 export const dynamic = "force-dynamic";
 
 const Page: FC<PageProps> = async ({}) => {
-  const user = await stackServerApp.getUser();
+  const user = await currentUser();
   console.log("USER", user);
+  // const user = await stackServerApp.getUser();
+  // console.log("USER", user);
   const { data } = await getClient().query({
     query: GET_USER_PROFILE,
     variables: {
       userId: user?.id,
-      email: user?.primaryEmail,
-      name: user?.displayName,
+      email: user?.emailAddresses[0].emailAddress,
+      name: user?.externalAccounts[0].firstName,
     },
   });
   console.log("DATA", data);

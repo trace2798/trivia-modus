@@ -4,13 +4,13 @@ import { GENERATE_TRIVIA_TOP_MOVIE } from "@/lib/queries";
 import { TopMovies } from "@/lib/top-movies";
 import { FC } from "react";
 import QuestionFE from "./_components/question-fe";
-import { stackServerApp } from "@/stack";
+// import { stackServerApp } from "@/stack";
 
 interface PageProps {}
 export const dynamic = "force-dynamic";
 
 const Page: FC<PageProps> = async ({}) => {
-  const user = await stackServerApp.getUser();
+  // const user = await stackServerApp.getUser();
   const topMoviesData = TopMovies;
   const randomIndex = Math.floor(Math.random() * topMoviesData.length);
   console.log("TOP MOVIES Local", JSON.stringify(topMoviesData[randomIndex]));
