@@ -127,3 +127,17 @@ export const GENERATE_TRIVIA_TOP_MOVIE = gql`
     }
   }
 `;
+
+export const CREATE_GAME_TOP = gql`
+  mutation createGameAndInsertQuestionsTop(
+    $movieId: String!
+    $movieTitle: String!
+    $questions: [TriviaQuestionStaticInput!]!
+  ) {
+    createGameAndInsertQuestionsTop(
+      movieId: $movieId
+      movieTitle: $movieTitle
+      questions: $questions
+    )
+  }
+`;

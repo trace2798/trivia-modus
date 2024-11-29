@@ -18,7 +18,6 @@ const TriviaQuizTop = ({ questions }: { questions: TriviaQuestionTop[] }) => {
   const [showResult, setShowResult] = useState(false);
   const [hasAnswered, setHasAnswered] = useState(false);
 
-  // Filter out invalid questions
   const validQuestions = questions.filter(
     (q) => q.question && q.options.length > 0 && q.answer
   );

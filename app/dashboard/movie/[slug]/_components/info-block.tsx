@@ -4,7 +4,7 @@ import { CREATE_GAME, GENERATE_TRIVIA } from "@/lib/queries";
 import { useLazyQuery, useMutation } from "@apollo/client";
 import { format } from "date-fns";
 import { useRouter } from "next/navigation";
-import { FC, use, useState } from "react";
+import { FC, useState } from "react";
 import { toast } from "sonner";
 
 interface InfoBlockProps {
@@ -50,10 +50,11 @@ const InfoBlock: FC<InfoBlockProps> = ({
       fetchPolicy: "no-cache",
       onCompleted: (data) => {
         console.log("Trivia DATA from LLM", data.generateTrivia);
-
         if (data.generateTrivia) {
           try {
             setTriviaQuestions(data.generateTrivia);
+            toast.success("Trivia questions generated successfully!");
+            toast.success("Sending to backend to generate quiz");
             sendQuestionsToBackend(data.generateTrivia);
           } catch (e) {
             console.error("Failed to parse JSON:", e);
@@ -88,18 +89,9 @@ const InfoBlock: FC<InfoBlockProps> = ({
   });
   const sendQuestionsToBackend = async (questions: any) => {
     try {
-      // // Prepare the data to send
-      // const payload = {
-      //   movieId: parseInt(movieId), // Ensure this ID is available
-      //   movieTitle: data.movieById.title,
-      //   questions: questions,
-      // };
-      // await createGameAndInsertQuestions({ variables: payload });
       const cleanedQuestions = questions.map(
         ({ __typename, ...q }: { __typename?: string }) => q
       );
-
-      // Prepare the data to send
       const payload = {
         movieId: movieId as string, // Ensure this ID is available and an integer
         movieTitle: data.movieById.title as string,
