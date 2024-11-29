@@ -86,7 +86,6 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
                   <CardFooter className="flex flex-col text-center p-0 pb-3">
                     <p className="text-lg">{movie.title}</p>
                     <p className="text-sm text-primary/80">
-                      {/* {format(new Date(movie.release_date), "MMMM d, yyyy")} */}
                     </p>
                   </CardFooter>
                 </Link>
