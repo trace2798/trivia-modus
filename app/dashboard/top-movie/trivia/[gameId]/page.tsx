@@ -1,12 +1,15 @@
 import { FC } from "react";
 
+
+export const dynamic = "force-dynamic";
+
 interface PageProps {
-    parms: {
-        gameId: string
-    }
+  params: {
+    gameId: string;
+  };
 }
 
-const Page: FC<PageProps> = ({}) => {
+const Page: FC<PageProps> = ({params}) => {
   return (
     <>
       <div>Page</div>
