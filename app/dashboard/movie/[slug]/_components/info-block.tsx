@@ -194,7 +194,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
           {/* {error && <p className="text-red-500">Error: {error.message}</p>} */}
         </div>
       </div>
-      {triviaQuestions && (
+      {/* {triviaQuestions && (
         <div className="bg-black p-4 rounded-lg shadow-md">
           <h2 className="text-xl font-semibold mb-4">Trivia Questions</h2>
           <div className="space-y-4">
@@ -213,7 +213,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
             ))}
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

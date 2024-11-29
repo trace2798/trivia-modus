@@ -559,4 +559,894 @@ export const TopMovies = [
     overview:
       "The relationship between a band's bassist, their drummer, and the drummer’s roommate and ex-boyfriend, who is a professional violinist.",
   },
+  {
+    id: 10376,
+    title: "The Legend of 1900",
+    release_date: "1998-10-28",
+    overview:
+      "The story of a virtuoso piano player who lives his entire life aboard an ocean liner. Born and raised on the ship, 1900 (Tim Roth) learned about the outside world through interactions with passengers, never setting foot on land, even for the love of his life. Years later, the ship may be destroyed, and a former band member fears that 1900 may still be aboard, willing to go down with the ship.",
+  },
+  {
+    id: 637920,
+    title: "Miracle in Cell No. 7",
+    release_date: "2019-10-10",
+    overview:
+      "Separated from his daughter, a father with an intellectual disability must prove his innocence when he is jailed for the death of a commander's child.",
+  },
+  {
+    id: 29259,
+    title: "Le Trou",
+    release_date: "1960-03-18",
+    overview:
+      "Four prison inmates have been hatching a plan to literally dig out of jail when another prisoner, Claude Gaspard, is moved into their cell. They take a risk and share their plan with the newcomer. Over the course of three days, the prisoners and friends break through the concrete floor using a bed post and begin to make their way through the sewer system -- yet their escape is anything but assured.",
+  },
+  {
+    id: 533514,
+    title: "Violet Evergarden: The Movie",
+    release_date: "2020-09-18",
+    overview:
+      "As the world moves on from the war and technological advances bring changes to her life, Violet still hopes to see her lost commanding officer again.",
+  },
+  {
+    id: 670,
+    title: "Oldboy",
+    release_date: "2003-11-21",
+    overview:
+      "With no clue how he came to be imprisoned, drugged and tortured for 15 years, a desperate man seeks revenge on his captors.",
+  },
+  {
+    id: 630566,
+    title: "Clouds",
+    release_date: "2020-10-09",
+    overview:
+      "Young musician Zach Sobiech discovers his cancer has spread, leaving him just a few months to live. With limited time, he follows his dream and makes an album, unaware that it will soon be a viral music phenomenon.",
+  },
+  {
+    id: 8587,
+    title: "The Lion King",
+    release_date: "1994-06-24",
+    overview:
+      "Young lion prince Simba, eager to one day become king of the Pride Lands, grows up under the watchful eye of his father Mufasa; all the while his villainous uncle Scar conspires to take the throne for himself. Amid betrayal and tragedy, Simba must confront his past and find his rightful place in the Circle of Life.",
+  },
+  {
+    id: 25237,
+    title: "Come and See",
+    release_date: "1985-10-17",
+    overview:
+      "The invasion of a village in Byelorussia by German forces sends young Florya into the forest to join the weary Resistance fighters, against his family's wishes. There he meets a girl, Glasha, who accompanies him back to his village. On returning home, Florya finds his family and fellow peasants massacred. His continued survival amidst the brutal debris of war becomes increasingly nightmarish, a battle between despair and hope.",
+  },
+  {
+    id: 447362,
+    title: "Life in a Year",
+    release_date: "2020-11-27",
+    overview:
+      "A 17 year old finds out that his girlfriend is dying, so he sets out to give her an entire life, in the last year she has left.",
+  },
+  {
+    id: 527641,
+    title: "Five Feet Apart",
+    release_date: "2019-03-14",
+    overview:
+      "Seventeen-year-old Stella spends most of her time in the hospital as a cystic fibrosis patient. Her life is full of routines, boundaries and self-control — all of which get put to the test when she meets Will, an impossibly charming teen who has the same illness. There's an instant flirtation, though restrictions dictate that they must maintain a safe distance between them. As their connection intensifies, so does the temptation to throw the rules out the window and embrace that attraction.",
+  },
+  {
+    id: 299534,
+    title: "Avengers: Endgame",
+    release_date: "2019-04-24",
+    overview:
+      "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store.",
+  },
+  {
+    id: 283566,
+    title: "Evangelion: 3.0+1.0 Thrice Upon a Time",
+    release_date: "2021-03-08",
+    overview:
+      "In the aftermath of the Fourth Impact, stranded without their Evangelions, Shinji, Asuka and Rei find refuge in one of the rare pockets of humanity that still exist on the ruined planet Earth. There, each lives a life far different from their days as an Evangelion pilot. However, the danger to the world is far from over. A new impact is looming on the horizon—one that will prove to be the true end of Evangelion.",
+  },
+  {
+    id: 299536,
+    title: "Avengers: Infinity War",
+    release_date: "2018-04-25",
+    overview:
+      "As the Avengers and their allies have continued to protect the world from threats too large for any one hero to handle, a new danger has emerged from the cosmic shadows: Thanos. A despot of intergalactic infamy, his goal is to collect all six Infinity Stones, artifacts of unimaginable power, and use them to inflict his twisted will on all of reality. Everything the Avengers have fought for has led up to this moment - the fate of Earth and existence itself has never been more uncertain.",
+  },
+  {
+    id: 490132,
+    title: "Green Book",
+    release_date: "2018-11-16",
+    overview:
+      "Tony Lip, a bouncer in 1962, is hired to drive pianist Don Shirley on a tour through the Deep South in the days when African Americans, forced to find alternate accommodations and services due to segregation laws below the Mason-Dixon Line, relied on a guide called The Negro Motorist Green Book.",
+  },
+  {
+    id: 572154,
+    title: "Rascal Does Not Dream of a Dreaming Girl",
+    release_date: "2019-06-15",
+    overview:
+      "In Fujisawa, Sakuta Azusagawa is in his second year of high school. Blissful days with his girlfriend and upperclassman, Mai Sakurajima, are interrupted by the appearance of his first crush, Shoko Makinohara.",
+  },
+  {
+    id: 508965,
+    title: "Klaus",
+    release_date: "2019-11-08",
+    overview:
+      "When Jesper distinguishes himself as the Postal Academy's worst student, he is sent to Smeerensburg, a small village located on an icy island above the Arctic Circle, where grumpy inhabitants barely exchange words, let alone letters. Jesper is about to give up and abandon his duty as a postman when he meets local teacher Alva and Klaus, a mysterious carpenter who lives alone in a cabin full of handmade toys.",
+  },
+  {
+    id: 265177,
+    title: "Mommy",
+    release_date: "2014-09-19",
+    overview:
+      "A peculiar neighbor offers hope to a recent widow who is struggling to raise a teenager who is unpredictable and, sometimes, violent.",
+  },
+  {
+    id: 110420,
+    title: "Wolf Children",
+    release_date: "2012-07-21",
+    overview:
+      "After her werewolf lover unexpectedly dies in an accident, a woman must find a way to raise the son and daughter that she had with him. However, their inheritance of their father's traits prove to be a challenge for her.",
+  },
+  {
+    id: 504253,
+    title: "I Want to Eat Your Pancreas",
+    release_date: "2018-09-01",
+    overview:
+      "After his classmate and crush is diagnosed with a pancreatic disease, an average high schooler sets out to make the most of her final days.",
+  },
+  {
+    id: 441130,
+    title: "Wolfwalkers",
+    release_date: "2020-10-26",
+    overview:
+      "In a time of superstition and magic, when wolves are seen as demonic and nature an evil to be tamed, a young apprentice hunter comes to Ireland with her father to wipe out the last pack. But when she saves a wild native girl, their friendship leads her to discover the world of the Wolfwalkers and transform her into the very thing her father is tasked to destroy.",
+  },
+  {
+    id: 315162,
+    title: "Puss in Boots: The Last Wish",
+    release_date: "2022-12-07",
+    overview:
+      "Puss in Boots discovers that his passion for adventure has taken its toll: He has burned through eight of his nine lives, leaving him with only one life left. Puss sets out on an epic journey to find the mythical Last Wish and restore his nine lives.",
+  },
+  {
+    id: 24188,
+    title: "Il Sorpasso",
+    release_date: "1962-12-05",
+    overview:
+      "Roberto, a shy law student in Rome, meets Bruno, a forty-year-old exuberant, capricious man, who takes him for a drive through the Roman and Tuscany countries in the summer. When their journey starts to blend into their daily lives though, the pair’s newfound friendship is tested.",
+  },
+  {
+    id: 16869,
+    title: "Inglourious Basterds",
+    release_date: "2009-08-02",
+    overview:
+      'In Nazi-occupied France during World War II, a group of Jewish-American soldiers known as "The Basterds" are chosen specifically to spread fear throughout the Third Reich by scalping and brutally killing Nazis. The Basterds, lead by Lt. Aldo Raine soon cross paths with a French-Jewish teenage girl who runs a movie theater in Paris which is targeted by the soldiers.',
+  },
+  {
+    id: 603,
+    title: "The Matrix",
+    release_date: "1999-03-31",
+    overview:
+      "Set in the 22nd century, The Matrix tells the story of a computer hacker who joins a group of underground insurgents fighting the vast and powerful computers who now rule the earth.",
+  },
+  {
+    id: 654299,
+    title: "Out of the Clear Blue Sky",
+    release_date: "2019-12-24",
+    overview:
+      "Returning to Earth as an imitator, the legendary Mexican artist Pedro Infante must prove that he is no longer a womanizer to enter paradise.",
+  },
+  {
+    id: 618344,
+    title: "Justice League Dark: Apokolips War",
+    release_date: "2020-05-05",
+    overview:
+      "Earth is decimated after intergalactic tyrant Darkseid has devastated the Justice League in a poorly executed war by the DC Super Heroes. Now the remaining bastions of good – the Justice League, Teen Titans, Suicide Squad and assorted others – must regroup, strategize and take the war to Darkseid in order to save the planet and its surviving inhabitants.",
+  },
+  {
+    id: 290098,
+    title: "The Handmaiden",
+    release_date: "2016-06-01",
+    overview:
+      "In 1930s Korea, a swindler and a young woman pose as a Japanese count and a handmaiden to seduce a Japanese heiress and steal her fortune.",
+  },
+  {
+    id: 98,
+    title: "Gladiator",
+    release_date: "2000-05-04",
+    overview:
+      "After the death of Emperor Marcus Aurelius, his devious son takes power and demotes Maximus, one of Rome's most capable generals who Marcus preferred. Eventually, Maximus is forced to become a gladiator and battle to the death against other men for the amusement of paying audiences.",
+  },
+  {
+    id: 857,
+    title: "Saving Private Ryan",
+    release_date: "1998-07-24",
+    overview:
+      "As U.S. troops storm the beaches of Normandy, three brothers lie dead on the battlefield, with a fourth trapped behind enemy lines. Ranger captain John Miller and seven men are tasked with penetrating German-held territory and bringing the boy home.",
+  },
+  {
+    id: 694,
+    title: "The Shining",
+    release_date: "1980-05-23",
+    overview:
+      "Jack Torrance accepts a caretaker job at the Overlook Hotel, where he, along with his wife Wendy and their son Danny, must live isolated from the rest of the world for the winter. But they aren't prepared for the madness that lurks within.",
+  },
+  {
+    id: 572154,
+    title: "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train",
+    release_date: "2020-10-16",
+    overview:
+      "Tanjiro Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyojuro Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
+  },
+  {
+    id: 50014,
+    title: "The Help",
+    release_date: "2011-08-09",
+    overview:
+      'Aibileen Clark is a middle-aged African-American maid who has spent her life raising white children and has recently lost her only son; Minny Jackson is an African-American maid who has often offended her employers despite her family\'s struggles with money and her desperate need for jobs; and Eugenia "Skeeter" Phelan is a young white woman who has recently moved back home after graduating college to find out her childhood maid has mysteriously disappeared. These three stories intertwine to explain how life in Jackson, Mississippi revolves around "the help"; yet they are always kept at a certain distance because of racial lines.',
+  },
+  {
+    id: 37257,
+    title: "Witness for the Prosecution",
+    release_date: "1957-12-17",
+    overview:
+      "An old, sickly British barrister, urged to retire by his live-in nurse and his doctors, finds a new murder case hard to resist and decides to step into the courtroom again to defend a man accused of killing a wealthy widow for her money.",
+  },
+  {
+    id: 354912,
+    title: "Coco",
+    release_date: "2017-10-27",
+    overview:
+      "Despite his family’s baffling generations-old ban on music, Miguel dreams of becoming an accomplished musician like his idol, Ernesto de la Cruz. Desperate to prove his talent, Miguel finds himself in the stunning and colorful Land of the Dead following a mysterious chain of events. Along the way, he meets charming trickster Hector, and together, they set off on an extraordinary journey to unlock the real story behind Miguel's family history.",
+  },
+  {
+    id: 16672,
+    title: "Woman in the Dunes",
+    release_date: "1964-02-15",
+    overview:
+      "A vacationing entomologist suffers extreme physical and psychological trauma after being taken captive by the residents of a poor seaside village and made to live with a woman whose life task is shoveling sand for them.",
+  },
+  {
+    id: 11,
+    title: "Star Wars",
+    release_date: "1977-05-25",
+    overview:
+      "Princess Leia is captured and held hostage by the evil Imperial forces in their effort to take over the galactic Empire. Venturesome Luke Skywalker and dashing captain Han Solo team together with the loveable robot duo R2-D2 and C-3PO to rescue the beautiful princess and restore peace and justice in the Empire.",
+  },
+  {
+    id: 1084736,
+    title: "The Count of Monte-Cristo",
+    release_date: "2024-06-28",
+    overview:
+      "Edmond Dantes becomes the target of a sinister plot and is arrested on his wedding day for a crime he did not commit. After 14 years in the island prison of Château d’If, he manages a daring escape. Now rich beyond his dreams, he assumes the identity of the Count of Monte-Cristo and exacts his revenge on the three men who betrayed him.",
+  },
+  {
+    id: 11324,
+    title: "Shutter Island",
+    release_date: "2010-02-14",
+    overview:
+      "World War II soldier-turned-U.S. Marshal Teddy Daniels investigates the disappearance of a patient from a hospital for the criminally insane, but his efforts are compromised by troubling visions and a mysterious doctor.",
+  },
+  {
+    id: 1124,
+    title: "The Prestige",
+    release_date: "2006-10-17",
+    overview:
+      "A mysterious story of two magicians whose intense rivalry leads them on a life-long battle for supremacy -- full of obsession, deceit and jealousy with dangerous and deadly consequences.",
+  },
+  {
+    id: 361743,
+    title: "Top Gun: Maverick",
+    release_date: "2022-05-21",
+    overview:
+      "After more than thirty years of service as one of the Navy’s top aviators, and dodging the advancement in rank that would ground him, Pete “Maverick” Mitchell finds himself training a detachment of TOP GUN graduates for a specialized mission the likes of which no living pilot has ever seen.",
+  },
+  {
+    id: 284,
+    title: "The Apartment",
+    release_date: "1960-06-21",
+    overview:
+      "Bud Baxter is a minor clerk in a huge New York insurance company, until he discovers a quick way to climb the corporate ladder. He lends out his apartment to the executives as a place to take their mistresses. Although he often has to deal with the aftermath of their visits, one night he's left with a major problem to solve.",
+  },
+  {
+    id: 476292,
+    title: "Maquia: When the Promised Flower Blooms",
+    release_date: "2018-02-24",
+    overview:
+      "Maquia is a member of a special race called the Iorph who can live for hundreds of years. However, Maquia has always felt lonely despite being surrounded by her people, as she was orphaned from a young age. She daydreams about the outside world, but dares not travel from her home due to the warnings of the clan's chief. One day the kingdom of Mezarte invades her homeland. They already have what is left of the giant dragons, the Renato, under their control, and now their king wishes to add the immortality to his bloodline. They ravage the Iorph homeland and kill most of its inhabitants. Caught in the midst of the attack, Maquia is carried off by one of the Renato. It soon dies, and she is left deserted in a forest, now truly alone save for the cries of a single baby off in the distance. Maquia finds the baby in a destroyed village and decides to raise him as her own, naming him Ariel. Although she knows nothing of the human world, how to raise a child that ages much faster than her.",
+  },
+  {
+    id: 324786,
+    title: "Hacksaw Ridge",
+    release_date: "2016-10-07",
+    overview:
+      "WWII American Army Medic Desmond T. Doss, who served during the Battle of Okinawa, refuses to kill people and becomes the first Conscientious Objector in American history to receive the Congressional Medal of Honor.",
+  },
+  {
+    id: 610892,
+    title: "Violet Evergarden: Eternity and the Auto Memory Doll",
+    release_date: "2019-09-06",
+    overview:
+      "Isabella, the daughter of the noble York family, is enrolled in an all-girls academy to be groomed into a dame worthy of nobility. However, she has given up on her future, seeing the prestigious school as nothing more than a prison from the outside world. Her family notices her struggling in her lessons and decides to hire Violet Evergarden to personally tutor her under the guise of a handmaiden. At first, Isabella treats Violet coldly. Violet seems to be able to do everything perfectly, leading Isabella to assume that she was born with a silver spoon. After some time, Isabella begins to realize that Violet has had her own struggles and starts to open up to her. Isabella soon reveals that she has lost contact with her beloved younger sister, whom she yearns to see again. Having experienced the power of words through her past clientele, Violet asks if Isabella wishes to write a letter to Taylor. Will Violet be able to help Isabella convey her feelings to her long-lost sister?",
+  },
+  {
+    id: 185,
+    title: "A Clockwork Orange",
+    release_date: "1971-12-19",
+    overview:
+      "In a near-future Britain, young Alexander DeLarge and his pals get their kicks beating and raping anyone they please. When not destroying the lives of others, Alex swoons to the music of Beethoven. The state, eager to crack down on juvenile crime, gives an incarcerated Alex the option to undergo an invasive procedure that'll rob him of all personal agency. In a time when conscience is a commodity, can Alex change his tune?",
+  },
+  {
+    id: 5156,
+    title: "Bicycle Thieves",
+    release_date: "1948-07-21",
+    overview:
+      "Unemployed Antonio is elated when he finally finds work hanging posters around war-torn Rome. However on his first day, his bicycle—essential to his work—gets stolen. His job is doomed unless he can find the thief. With the help of his son, Antonio combs the city, becoming desperate for justice.",
+  },
+  {
+    id: 522924,
+    title: "The Art of Racing in the Rain",
+    release_date: "2019-08-08",
+    overview:
+      "A family dog – with a near-human soul and a philosopher's mind – evaluates his life through the lessons learned by his human owner, a race-car driver.",
+  },
+  {
+    id: 490,
+    title: "The Seventh Seal",
+    release_date: "1957-02-16",
+    overview:
+      "When disillusioned Swedish knight Antonius Block returns home from the Crusades to find his country in the grips of the Black Death, he challenges Death to a chess match for his life. Tormented by the belief that God does not exist, Block sets off on a journey, meeting up with traveling players Jof and his wife, Mia, and becoming determined to evade Death long enough to commit one redemptive act while he still lives.",
+  },
+  {
+    id: 92060,
+    title: "Michael Jackson's Thriller",
+    release_date: "1983-11-14",
+    overview:
+      'A night at the movies turns into a nightmare when Michael and his date are attacked by a horde of bloody-thirsty zombies. On top of the success of the Thriller album and Michael Jackson\'s electrifying performance at Motown 25, the short film/music video for "Thriller" established Jackson as an international superstar and global phenomenon. Thriller is credited for transforming music videos into a serious art form, breaking down racial barriers in popular entertainment, popularizing the making-of documentary format and creating a home video market. The success transformed Jackson into a dominant force in global pop culture. In 2009, it became the first music video inducted into the United States National Film Registry by the Library of Congress as "culturally, historically or aesthetically significant". "Thriller" was also Jackson\'s seventh and final U.S. Hot 100 Top 10 hit from the Thriller album. It was the first album in history to have seven U.S. Top 10s.',
+  },
+  {
+    id: 313106,
+    title: "Doctor Who: The Day of the Doctor",
+    release_date: "2013-11-23",
+    overview:
+      "In 2013, something terrible is awakening in London's National Gallery; in 1562, a murderous plot is afoot in Elizabethan England; and somewhere in space an ancient battle reaches its devastating conclusion. All of reality is at stake as the Doctor's own dangerous past comes back to haunt him.",
+  },
+  {
+    id: 68718,
+    title: "Django Unchained",
+    release_date: "2012-12-25",
+    overview:
+      "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+  },
+  {
+    id: 629,
+    title: "The Usual Suspects",
+    release_date: "1995-07-19",
+    overview:
+      "Held in an L.A. interrogation room, Verbal Kint attempts to convince the feds that a mythic crime lord, Keyser Soze, not only exists, but was also responsible for drawing him and his four partners into a multi-million dollar heist that ended with an explosion in San Pedro harbor – leaving few survivors. Verbal lures his interrogators with an incredible story of the crime lord's almost supernatural prowess.",
+  },
+  {
+    id: 77,
+    title: "Memento",
+    release_date: "2000-10-11",
+    overview:
+      "Leonard Shelby is tracking down the man who raped and murdered his wife. The difficulty of locating his wife's killer, however, is compounded by the fact that he suffers from a rare, untreatable form of short-term memory loss. Although he can recall details of life before his accident, Leonard cannot remember what happened fifteen minutes ago, where he's going, or why.",
+  },
+  {
+    id: 620683,
+    title: "My Mom Is a Character 3",
+    release_date: "2019-12-26",
+    overview:
+      "Dona Hermínia will have to rediscover and reinvent herself because her children are forming new families. This supermom will have to deal with a new life scenario: Marcelina is pregnant and Juliano is getting married.",
+  },
+  {
+    id: 556574,
+    title: "Hamilton",
+    release_date: "2020-07-03",
+    overview:
+      "Presenting the tale of American founding father Alexander Hamilton, this filmed version of the original Broadway smash hit is the story of America then, told by America now.",
+  },
+  {
+    id: 18148,
+    title: "Tokyo Story",
+    release_date: "1953-11-03",
+    overview:
+      "The elderly Shukishi and his wife, Tomi, take the long journey from their small seaside village to visit their adult children in Tokyo. Their elder son, Koichi, a doctor, and their daughter, Shige, a hairdresser, don't have much time to spend with their aged parents, and so it falls to Noriko, the widow of their younger son who was killed in the war, to keep her in-laws company.",
+  },
+  {
+    id: 797,
+    title: "Persona",
+    release_date: "1966-10-18",
+    overview:
+      "A young nurse, Alma, is put in charge of Elisabeth Vogler: an actress who is seemingly healthy in all respects, but will not talk. As they spend time together, Alma speaks to Elisabeth constantly, never receiving any answer.",
+  },
+  {
+    id: 26451,
+    title: "Investigation of a Citizen Above Suspicion",
+    release_date: "1970-10-16",
+    overview:
+      "Rome, Italy. After committing a heinous crime, a senior police officer exposes evidence incriminating him because his moral commitment prevents him from circumventing the law and the social order it protects.",
+  },
+  {
+    id: 10098,
+    title: "The Kid",
+    release_date: "1921-01-21",
+    overview:
+      "A tramp cares for a boy after he's abandoned as a newborn by his mother. Later the mother has a change of heart and aches to be reunited with her son.",
+  },
+  {
+    id: 810693,
+    title: "Jujutsu Kaisen 0",
+    release_date: "2021-12-24",
+    overview:
+      "Yuta Okkotsu is a nervous high school student who is suffering from a serious problem—his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him?",
+  },
+  {
+    id: 68718,
+    title: "Django Unchained",
+    release_date: "2012-12-25",
+    overview:
+      "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+  },
+  {
+    id: 629,
+    title: "The Usual Suspects",
+    release_date: "1995-07-19",
+    overview:
+      "Held in an L.A. interrogation room, Verbal Kint attempts to convince the feds that a mythic crime lord, Keyser Soze, not only exists, but was also responsible for drawing him and his four partners into a multi-million dollar heist that ended with an explosion in San Pedro harbor – leaving few survivors. Verbal lures his interrogators with an incredible story of the crime lord's almost supernatural prowess.",
+  },
+  {
+    id: 77,
+    title: "Memento",
+    release_date: "2000-10-11",
+    overview:
+      "Leonard Shelby is tracking down the man who raped and murdered his wife. The difficulty of locating his wife's killer, however, is compounded by the fact that he suffers from a rare, untreatable form of short-term memory loss. Although he can recall details of life before his accident, Leonard cannot remember what happened fifteen minutes ago, where he's going, or why.",
+  },
+  {
+    id: 620683,
+    title: "My Mom Is a Character 3",
+    release_date: "2019-12-26",
+    overview:
+      "Dona Hermínia will have to rediscover and reinvent herself because her children are forming new families. This supermom will have to deal with a new life scenario: Marcelina is pregnant and Juliano is getting married.",
+  },
+  {
+    id: 556574,
+    title: "Hamilton",
+    release_date: "2020-07-03",
+    overview:
+      "Presenting the tale of American founding father Alexander Hamilton, this filmed version of the original Broadway smash hit is the story of America then, told by America now.",
+  },
+  {
+    id: 18148,
+    title: "Tokyo Story",
+    release_date: "1953-11-03",
+    overview:
+      "The elderly Shukishi and his wife, Tomi, take the long journey from their small seaside village to visit their adult children in Tokyo. Their elder son, Koichi, a doctor, and their daughter, Shige, a hairdresser, don't have much time to spend with their aged parents, and so it falls to Noriko, the widow of their younger son who was killed in the war, to keep her in-laws company.",
+  },
+  {
+    id: 797,
+    title: "Persona",
+    release_date: "1966-10-18",
+    overview:
+      "A young nurse, Alma, is put in charge of Elisabeth Vogler: an actress who is seemingly healthy in all respects, but will not talk. As they spend time together, Alma speaks to Elisabeth constantly, never receiving any answer.",
+  },
+  {
+    id: 26451,
+    title: "Investigation of a Citizen Above Suspicion",
+    release_date: "1970-10-16",
+    overview:
+      "Rome, Italy. After committing a heinous crime, a senior police officer exposes evidence incriminating him because his moral commitment prevents him from circumventing the law and the social order it protects.",
+  },
+  {
+    id: 10098,
+    title: "The Kid",
+    release_date: "1921-01-21",
+    overview:
+      "A tramp cares for a boy after he's abandoned as a newborn by his mother. Later the mother has a change of heart and aches to be reunited with her son.",
+  },
+  {
+    id: 810693,
+    title: "Jujutsu Kaisen 0",
+    release_date: "2021-12-24",
+    overview:
+      "Yuta Okkotsu is a nervous high school student who is suffering from a serious problem—his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him?",
+  },
+  {
+    id: 10098,
+    title: "The Kid",
+    release_date: "1921-01-21",
+    overview:
+      "A tramp cares for a boy after he's abandoned as a newborn by his mother. Later the mother has a change of heart and aches to be reunited with her son.",
+  },
+  {
+    id: 810693,
+    title: "Jujutsu Kaisen 0",
+    release_date: "2021-12-24",
+    overview:
+      "Yuta Okkotsu is a nervous high school student who is suffering from a serious problem—his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him?",
+  },
+  {
+    id: 68718,
+    title: "Django Unchained",
+    release_date: "2012-12-25",
+    overview:
+      "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
+  },
+  {
+    id: 629,
+    title: "The Usual Suspects",
+    release_date: "1995-07-19",
+    overview:
+      "Held in an L.A. interrogation room, Verbal Kint attempts to convince the feds that a mythic crime lord, Keyser Soze, not only exists, but was also responsible for drawing him and his four partners into a multi-million dollar heist that ended with an explosion in San Pedro harbor – leaving few survivors. Verbal lures his interrogators with an incredible story of the crime lord's almost supernatural prowess.",
+  },
+  {
+    id: 77,
+    title: "Memento",
+    release_date: "2000-10-11",
+    overview:
+      "Leonard Shelby is tracking down the man who raped and murdered his wife. The difficulty of locating his wife's killer, however, is compounded by the fact that he suffers from a rare, untreatable form of short-term memory loss. Although he can recall details of life before his accident, Leonard cannot remember what happened fifteen minutes ago, where he's going, or why.",
+  },
+  {
+    id: 620683,
+    title: "My Mom Is a Character 3",
+    release_date: "2019-12-26",
+    overview:
+      "Dona Hermínia will have to rediscover and reinvent herself because her children are forming new families. This supermom will have to deal with a new life scenario: Marcelina is pregnant and Juliano is getting married.",
+  },
+  {
+    id: 556574,
+    title: "Hamilton",
+    release_date: "2020-07-03",
+    overview:
+      "Presenting the tale of American founding father Alexander Hamilton, this filmed version of the original Broadway smash hit is the story of America then, told by America now.",
+  },
+  {
+    id: 18148,
+    title: "Tokyo Story",
+    release_date: "1953-11-03",
+    overview:
+      "The elderly Shukishi and his wife, Tomi, take the long journey from their small seaside village to visit their adult children in Tokyo. Their elder son, Koichi, a doctor, and their daughter, Shige, a hairdresser, don't have much time to spend with their aged parents, and so it falls to Noriko, the widow of their younger son who was killed in the war, to keep her in-laws company.",
+  },
+  {
+    id: 797,
+    title: "Persona",
+    release_date: "1966-10-18",
+    overview:
+      "A young nurse, Alma, is put in charge of Elisabeth Vogler: an actress who is seemingly healthy in all respects, but will not talk. As they spend time together, Alma speaks to Elisabeth constantly, never receiving any answer.",
+  },
+  {
+    id: 26451,
+    title: "Investigation of a Citizen Above Suspicion",
+    release_date: "1970-10-16",
+    overview:
+      "Rome, Italy. After committing a heinous crime, a senior police officer exposes evidence incriminating him because his moral commitment prevents him from circumventing the law and the social order it protects.",
+  },
+  {
+    id: 10098,
+    title: "The Kid",
+    release_date: "1921-01-21",
+    overview:
+      "A tramp cares for a boy after he's abandoned as a newborn by his mother. Later the mother has a change of heart and aches to be reunited with her son.",
+  },
+  {
+    id: 810693,
+    title: "Jujutsu Kaisen 0",
+    release_date: "2021-12-24",
+    overview:
+      "Yuta Okkotsu is a nervous high school student who is suffering from a serious problem—his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him?",
+  },
+  {
+    id: 592350,
+    title: "My Hero Academia: Heroes Rising",
+    release_date: "2019-12-20",
+    overview:
+      "Class 1-A visits Nabu Island where they finally get to do some real hero work. The place is so peaceful that it's more like a vacation... until they're attacked by a villain with an unfathomable Quirk! His power is eerily familiar, and it looks like Shigaraki had a hand in the plan. But with All Might retired and citizens' lives on the line, there's no time for questions. Deku and his friends are the next generation of heroes, and they're the island's only hope.",
+  },
+  {
+    id: 426,
+    title: "Vertigo",
+    release_date: "1958-05-28",
+    overview:
+      "A retired San Francisco detective suffering from acrophobia investigates the strange activities of an old friend's wife, all the while becoming dangerously obsessed with her.",
+  },
+  {
+    id: 111,
+    title: "Scarface",
+    release_date: "1983-12-09",
+    overview:
+      "After getting a green card in exchange for assassinating a Cuban government official, Tony Montana stakes a claim on the drug trade in Miami. Viciously murdering anyone who stands in his way, Tony eventually becomes the biggest drug lord in the state, controlling nearly all the cocaine that comes through Miami. But increased pressure from the police, wars with Colombian drug cartels and his own drug-fueled paranoia serve to fuel the flames of his eventual downfall.",
+  },
+  {
+    id: 1422,
+    title: "The Departed",
+    release_date: "2006-10-04",
+    overview:
+      "To take down South Boston's Irish Mafia, the police send in one of their own to infiltrate the underworld, not realizing the syndicate has done likewise. While an undercover cop curries favor with the mob kingpin, a career criminal rises through the police ranks. But both sides soon discover there's a mole among them.",
+  },
+  {
+    id: 795607,
+    title: "Green Snake",
+    release_date: "2021-07-23",
+    overview:
+      "While trying to free her sister from Fahai's clutches, Xiao Qing winds up in a dystopian city and meets a mysterious man who can't recall his past life.",
+  },
+  {
+    id: 289,
+    title: "Casablanca",
+    release_date: "1943-01-15",
+    overview:
+      "In Casablanca, Morocco in December 1941, a cynical American expatriate meets a former lover, with unforeseen complications.",
+  },
+  {
+    id: 537061,
+    title: "Steven Universe: The Movie",
+    release_date: "2019-10-07",
+    overview:
+      "Two years after bringing peace to the galaxy, Steven Universe sees his past come back to haunt him in the form of a deranged Gem who wants to destroy the Earth.",
+  },
+  {
+    id: 517814,
+    title: "Silenced",
+    release_date: "2011-09-22",
+    overview:
+      "Based on actual events that took place at Gwangju Inhwa School for the hearing-impaired, where young deaf students were the victims of repeated sexual assaults by faculty members over a period of five years in the early 2000s.",
+  },
+  {
+    id: 851644,
+    title: "20th Century Girl",
+    release_date: "2022-10-06",
+    overview:
+      "In 1999, a teen girl keeps close tabs on a boy in school on behalf of her deeply smitten best friend – then she gets swept up in a love story of her own.",
+  },
+  {
+    id: 872,
+    title: "Singin' in the Rain",
+    release_date: "1952-04-09",
+    overview:
+      "In Casablanca, Morocco in December 1941, a cynical American expatriate meets a former lover, with unforeseen complications.",
+  },
+  {
+    id: 348,
+    title: "Alien",
+    release_date: "1979-05-25",
+    overview:
+      "During its return to the earth, commercial spaceship Nostromo intercepts a distress signal from a distant planet. When a three-member team of the crew discovers a chamber containing thousands of eggs on the planet, a creature inside one of the eggs attacks an explorer. The entire crew is unaware of the impending nightmare set to descend upon them when the alien parasite planted inside its unfortunate host is birthed.",
+  },
+  {
+    id: 489,
+    title: "Good Will Hunting",
+    release_date: "1997-12-05",
+    overview:
+      "When professors discover that an aimless janitor is also a math genius, a therapist helps the young man confront the demons that are holding him back.",
+  },
+  {
+    id: 81481,
+    title: "Silenced",
+    release_date: "2011-09-22",
+    overview:
+      "Based on actual events that took place at Gwangju Inhwa School for the hearing-impaired, where young deaf students were the victims of repeated sexual assaults by faculty members over a period of five years in the early 2000s.",
+  },
+  {
+    id: 422,
+    title: "8½",
+    release_date: "1963-02-14",
+    overview:
+      "Guido Anselmi, a film director, finds himself creatively barren at the peak of his career. Urged by his doctors to rest, Anselmi heads for a luxurious resort, but a sorry group gathers—his producer, staff, actors, wife, mistress, and relatives—each one begging him to get on with the show. In retreat from their dependency, he fantasizes about past women and dreams of his childhood.",
+  },
+  {
+    id: 606856,
+    title: "Togo",
+    release_date: "2019-12-20",
+    overview:
+      "The untold true story set in the winter of 1925 that takes you across the treacherous terrain of the Alaskan tundra for an exhilarating and uplifting adventure that will test the strength, courage and determination of one man, Leonhard Seppala, and his lead sled dog, Togo.",
+  },
+  {
+    id: 399106,
+    title: "Piper",
+    release_date: "2016-06-16",
+    overview:
+      "A mother bird tries to teach her little one how to find food by herself. In the process, she encounters a traumatic experience that she must overcome in order to survive.",
+  },
+  {
+    id: 1026227,
+    title: "There's Still Tomorrow",
+    release_date: "2023-10-26",
+    overview:
+      "In post-war Italy, the family of typical housewife Delia is in turmoil over the impending engagement of beloved firstborn Marcella. The arrival of a mysterious letter, however, will ignite Delia's courage to face her abusive husband and imagine a better future.",
+  },
+  {
+    id: 18148,
+    title: "Tokyo Story",
+    release_date: "1953-11-03",
+    overview:
+      "The elderly Shukishi and his wife, Tomi, take the long journey from their small seaside village to visit their adult children in Tokyo. Their elder son, Koichi, a doctor, and their daughter, Shige, a hairdresser, don't have much time to spend with their aged parents, and so it falls to Noriko, the widow of their younger son who was killed in the war, to keep her in-laws company.",
+  },
+  {
+    id: 797,
+    title: "Persona",
+    release_date: "1966-10-18",
+    overview:
+      "A young nurse, Alma, is put in charge of Elisabeth Vogler: an actress who is seemingly healthy in all respects, but will not talk. As they spend time together, Alma speaks to Elisabeth constantly, never receiving any answer.",
+  },
+  {
+    id: 26451,
+    title: "Investigation of a Citizen Above Suspicion",
+    release_date: "1970-10-16",
+    overview:
+      "Rome, Italy. After committing a heinous crime, a senior police officer exposes evidence incriminating him because his moral commitment prevents him from circumventing the law and the social order it protects.",
+  },
+  {
+    id: 10098,
+    title: "The Kid",
+    release_date: "1921-01-21",
+    overview:
+      "A tramp cares for a boy after he's abandoned as a newborn by his mother. Later the mother has a change of heart and aches to be reunited with her son.",
+  },
+  {
+    id: 810693,
+    title: "Jujutsu Kaisen 0",
+    release_date: "2021-12-24",
+    overview:
+      "Yuta Okkotsu is a nervous high school student who is suffering from a serious problem—his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him?",
+  },
+  {
+    id: 693134,
+    title: "Dune: Part Two",
+    release_date: "2024-02-27",
+    overview:
+      "Follow the mythic journey of Paul Atreides as he unites with Chani and the Fremen while on a path of revenge against the conspirators who destroyed his family. Facing a choice between the love of his life and the fate of the known universe, Paul endeavors to prevent a terrible future only he can foresee.",
+  },
+  {
+    id: 422,
+    title: "8½",
+    release_date: "1963-02-14",
+    overview:
+      "Guido Anselmi, a film director, finds himself creatively barren at the peak of his career. Urged by his doctors to rest, Anselmi heads for a luxurious resort, but a sorry group gathers—his producer, staff, actors, wife, mistress, and relatives—each one begging him to get on with the show. In retreat from their dependency, he fantasizes about past women and dreams of his childhood.",
+  },
+  {
+    id: 810693,
+    title: "Jujutsu Kaisen 0",
+    release_date: "2021-12-24",
+    overview:
+      "Yuta Okkotsu is a nervous high school student who is suffering from a serious problem—his childhood friend Rika has turned into a curse and won't leave him alone. Since Rika is no ordinary curse, his plight is noticed by Satoru Gojo, a teacher at Jujutsu High, a school where fledgling exorcists learn how to combat curses. Gojo convinces Yuta to enroll, but can he learn enough in time to confront the curse that haunts him?",
+  },
+  {
+    id: 575813,
+    title: "Better Days",
+    release_date: "2019-10-25",
+    overview:
+      "A bullied teenage girl forms an unlikely friendship with a mysterious young man who protects her from her assailants, while she copes with the pressures of her final examinations.",
+  },
+  {
+    id: 518068,
+    title: "Along with the Gods: The Last 49 Days",
+    release_date: "2018-08-01",
+    overview:
+      "As the deceased soul Ja-hong and his three afterlife guardians prepare for their remaining trials for reincarnation, the guardians soon come face to face with the truth of their tragic time on Earth 1,000 years earlier.",
+  },
+  {
+    id: 55823,
+    title: "The Great War",
+    release_date: "1959-10-28",
+    overview:
+      "Italy, 1916. Oreste Jacovacci and Giovanni Busacca are called, as all the Italian youths, to serve the army in the WWI. They both try in every way to avoid serving the army.",
+  },
+  {
+    id: 100,
+    title: "Lock, Stock and Two Smoking Barrels",
+    release_date: "1998-08-28",
+    overview:
+      "A card shark and his unwillingly-enlisted friends need to make a lot of cash quick after losing a sketchy poker match. To do this they decide to pull a heist on a small-time gang who happen to be operating out of the flat next door.",
+  },
+  {
+    id: 19,
+    title: "Metropolis",
+    release_date: "1927-02-06",
+    overview:
+      "In a futuristic city sharply divided between the rich and the poor, the son of the city's mastermind meets a prophet who predicts the coming of a savior to mediate their differences.",
+  },
+  {
+    id: 38288,
+    title: "“The Shorts” by Aldo, Giovanni and Giacomo",
+    release_date: "1996-03-29",
+    overview:
+      'I Corti ("Shorts") by Aldo, Giovanni & Giacomo was the first stage show of the comedy trio, with the participation of Marina Massironi. It was recorded live at the Teatro Nuovo in Ferrara on 28 and 29 March 1996. Produced by Agidi, with the theatre direction of Arturo Brachetti.',
+  },
+  {
+    id: 843,
+    title: "In the Mood for Love",
+    release_date: "2000-09-29",
+    overview:
+      "In Hong Kong of 1962, Mrs. Chan and Mr. Chow, a journalist, move into neighbouring apartments on the same day. Their encounters are formal and polite—until a discovery about their respective spouses creates an intimate bond between them.",
+  },
+  {
+    id: 935,
+    title:
+      "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
+    release_date: "1964-01-29",
+    overview:
+      "After the insane General Jack D. Ripper initiates a nuclear strike on the Soviet Union, a war room full of politicians, generals and a Russian diplomat all frantically try to stop the nuclear strike.",
+  },
+  {
+    id: 531428,
+    title: "Portrait of a Lady on Fire",
+    release_date: "2019-09-18",
+    overview:
+      "On an isolated island in Brittany at the end of the eighteenth century, a female painter is obliged to paint a wedding portrait of a young woman.",
+  },
+  {
+    id: 411088,
+    title: "The Invisible Guest",
+    release_date: "2017-01-06",
+    overview:
+      "Barcelona, Spain. Adrián Doria, a young and successful businessman accused of murder, meets one night with Virginia Goodman, an expert interrogation lawyer, in order to devise a defense strategy.",
+  },
+  {
+    id: 996,
+    title: "Double Indemnity",
+    release_date: "1944-07-06",
+    overview:
+      "A rich woman and a calculating insurance agent plot to kill her unsuspecting husband after he signs a double indemnity policy. Against a backdrop of distinctly Californian settings, the partners in crime plan the perfect murder to collect the insurance, which pays double if the death is accidental.",
+  },
+  {
+    id: 655,
+    title: "Paris, Texas",
+    release_date: "1984-07-16",
+    overview:
+      "A man wanders out of the desert not knowing who he is. His brother finds him, and helps to pull his memory back of the life he led before he walked out on his family and disappeared four years earlier.",
+  },
+  {
+    id: 46738,
+    title: "Incendies",
+    release_date: "2010-09-17",
+    overview:
+      "A mother's last wishes send twins Jeanne and Simon on a journey to Middle East in search of their tangled roots. Adapted from Wajdi Mouawad's acclaimed play, Incendies tells the powerful and moving tale of two young adults' voyage to the core of deep-rooted hatred, never-ending wars and enduring love.",
+  },
+  {
+    id: 664767,
+    title: "Mortal Kombat Legends: Scorpion's Revenge",
+    release_date: "2020-04-12",
+    overview:
+      "After the vicious slaughter of his family by stone-cold mercenary Sub-Zero, Hanzo Hasashi is exiled to the torturous Netherrealm. There, in exchange for his servitude to the sinister Quan Chi, he’s given a chance to avenge his family – and is resurrected as Scorpion, a lost soul bent on revenge. Back on Earthrealm, Lord Raiden gathers a team of elite warriors – Shaolin monk Liu Kang, Special Forces officer Sonya Blade and action star Johnny Cage – an unlikely band of heroes with one chance to save humanity. To do this, they must defeat Shang Tsung’s horde of Outworld gladiators and reign over the Mortal Kombat tournament.",
+  },
+  {
+    id: 3780,
+    title: "Red Beard",
+    release_date: "1965-04-03",
+    overview:
+      "Aspiring to an easy job as personal physician to a wealthy family, Noboru Yasumoto is disappointed when his first post after medical school takes him to a small country clinic under the gruff doctor Red Beard. Yasumoto rebels in numerous ways, but Red Beard proves a wise and patient teacher. He gradually introduces his student to the unglamorous side of the profession, ultimately assigning him to care for a prostitute rescued from a local brothel.",
+  },
+  {
+    id: 146233,
+    title: "Prisoners",
+    release_date: "2013-09-19",
+    overview:
+      "Keller Dover is facing every parent’s worst nightmare. His six-year-old daughter, Anna, is missing, together with her young friend, Joy, and as minutes turn to hours, panic sets in. The only lead is a dilapidated RV that had earlier been parked on their street.",
+  },
+  {
+    id: 103663,
+    title: "The Hunt",
+    release_date: "2012-06-13",
+    overview:
+      "A teacher lives a lonely life, all the while struggling over his son’s custody. His life slowly gets better as he finds love and receives good news from his son, but his new luck is about to be brutally shattered by an innocent little lie.",
+  },
+  {
+    id: 24382,
+    title: "Big Deal on Madonna Street",
+    release_date: "1958-07-26",
+    overview:
+      "Best friends Peppe and Mario are thieves, but they're not very good at it. Still, Peppe thinks that he's finally devised a master heist that will make them rich. With the help of some fellow criminals, he plans to dig a tunnel from a rented apartment to the pawnshop next door, where they can rob the safe. But his plan is far from foolproof, and the fact that no one in the group has any experience digging tunnels proves to be the least of their problems.",
+  },
+  {
+    id: 20532,
+    title: "Sansho the Bailiff",
+    release_date: "1954-03-31",
+    overview:
+      "In medieval Japan, a woman and her children journey to find the family's patriarch, who was exiled years before.",
+  },
+  {
+    id: 11878,
+    title: "Yojimbo",
+    release_date: "1961-04-25",
+    overview:
+      "A nameless ronin, or samurai with no master, enters a small village in feudal Japan where two rival businessmen are struggling for control of the local gambling trade. Taking the name Sanjuro Kuwabatake, the ronin convinces both silk merchant Tazaemon and sake merchant Tokuemon to hire him as a personal bodyguard, then artfully sets in motion a full-scale gang war between the two ambitious and unscrupulous men.",
+  },
 ];

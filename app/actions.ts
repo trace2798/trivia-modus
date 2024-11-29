@@ -6,6 +6,7 @@ import {
   GENERATE_TRIVIA,
   GET_MOVIE,
   RECOMMEND_MOVIE,
+  UPSERT_MOVIE,
 } from "@/lib/queries";
 
 type FetchQueryProps = {
@@ -117,6 +118,19 @@ export const recommendMovie = async ({ query: query }: { query: string }) => {
   const { data, errors } = await getClient().query({
     query: RECOMMEND_MOVIE,
     variables: { query },
+  });
+  return { data, errors };
+};
+
+export const upsertMovie = async (movie: any) => {
+  const { data, errors } = await getClient().mutate({
+    mutation: UPSERT_MOVIE,
+    variables: {
+      movieId: movie.id.toString(),
+      movieTitle: movie.title,
+      movieReleaseDate: movie.release_date,
+      movieOverview: movie.overview,
+    },
   });
   return { data, errors };
 };

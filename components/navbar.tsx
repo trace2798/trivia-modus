@@ -13,7 +13,9 @@ const Navbar: FC<NavbarProps> = ({}) => {
     <>
       <nav className="h-16 flex items-center border-b-2">
         <div className="flex flex-row justify-between items-center w-full max-w-7xl mx-auto">
-          <div className="text-3xl">Trivia Point</div>
+          <Link href={`/`}>
+            <div className="text-3xl">Rec & Triv</div>
+          </Link>
           <div>
             {user.isSignedIn ? (
               <Link href={`/dashboard`}>

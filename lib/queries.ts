@@ -158,3 +158,19 @@ export const RECOMMEND_MOVIE = gql`
     }
   }
 `;
+
+export const UPSERT_MOVIE = gql`
+  mutation upsertMovie(
+    $movieId: String!
+    $movieTitle: String!
+    $movieReleaseDate: String!
+    $movieOverview: String!
+  ) {
+    upsertMovie(
+      id: $movieId
+      title: $movieTitle
+      release_date: $movieReleaseDate
+      overview: $movieOverview
+    )
+  }
+`;

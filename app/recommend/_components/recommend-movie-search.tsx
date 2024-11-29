@@ -5,8 +5,10 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
+  CardDescription,
   CardFooter,
   CardHeader,
+  CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -96,15 +98,18 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
             {movieInfo.map((movie: any, index) => (
               <Card
                 key={index}
-                className="w-full flex flex-col justify-between border-none rounded-none"
+                className="w-full flex flex-col justify-between rounded-none"
               >
                 <Link
                   href={`/dashboard/movie/${parseInt(movie.id)}`}
                   className="w-full"
                 >
-                  <CardHeader>{movie.title}</CardHeader>
-                  <CardContent className="px-0 ">{movie.overview}</CardContent>
-                  <CardFooter className="flex flex-col p-0 pb-3"></CardFooter>
+                  <CardHeader>
+                    <CardTitle>{movie.title}</CardTitle>
+                    <CardDescription>{movie.overview}</CardDescription>
+                  </CardHeader>
+                  {/* <CardContent className="px-0 ">{movie.overview}</CardContent>
+                  <CardFooter className="flex flex-col p-0 pb-3"></CardFooter> */}
                 </Link>
               </Card>
             ))}
