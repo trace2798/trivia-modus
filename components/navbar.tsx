@@ -1,14 +1,14 @@
-"use client";
-import { FC } from "react";
-import { useUser } from "@clerk/nextjs";
-import Link from "next/link";
-import { Button } from "./ui/button";
+'use client';
+import { FC } from 'react';
+import { useUser } from '@clerk/nextjs';
+import Link from 'next/link';
+import { Button } from './ui/button';
 
 interface NavbarProps {}
 
 const Navbar: FC<NavbarProps> = ({}) => {
   const user = useUser();
-  console.log("USER Navbar", user.user);
+  console.log('USER Navbar', user.user);
   return (
     <>
       <nav className="h-16 flex items-center border-b-2">

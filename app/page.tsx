@@ -1,11 +1,10 @@
-import Navbar from "@/components/navbar";
-import { auth, currentUser } from "@clerk/nextjs/server";
-import Link from "next/link";
-
+import Navbar from '@/components/navbar';
+import { auth, currentUser } from '@clerk/nextjs/server';
+import Link from 'next/link';
 
 export default async function Home() {
   const user = await auth();
-  console.log("USER INFO", user);
+  console.log('USER INFO', user);
   return (
     <>
       <Navbar />
@@ -14,7 +13,7 @@ export default async function Home() {
           <h1 className="text-5xl">Rec & Triv</h1>
           <div className="flex flex-col space-y-1">
             <h2 className="text-primary/80 text-lg">
-              This application is my submission for{" "}
+              This application is my submission for{' '}
               <a
                 href="https://hashnode.com/hackathons/hypermode"
                 target="_blank"
@@ -30,17 +29,17 @@ export default async function Home() {
                 target="_blank"
                 className="font-medium hover:underline text-primary"
               >
-                {" "}
-                Modus{" "}
+                {' '}
+                Modus{' '}
               </a>
-              hosted on{" "}
+              hosted on{' '}
               <a
                 href="https://hypermode.com/home"
                 target="_blank"
                 className="font-medium hover:underline text-primary"
               >
-                {" "}
-                Hypermode{" "}
+                {' '}
+                Hypermode{' '}
               </a>
               for Backend.
             </p>
@@ -51,17 +50,17 @@ export default async function Home() {
                 target="_blank"
                 className="font-medium hover:underline text-primary"
               >
-                {" "}
-                Modus{" "}
+                {' '}
+                Modus{' '}
               </a>
-              hosted on{" "}
+              hosted on{' '}
               <a
                 href="https://hypermode.com/home"
                 target="_blank"
                 className="font-medium hover:underline text-primary"
               >
-                {" "}
-                Hypermode{" "}
+                {' '}
+                Hypermode{' '}
               </a>
               for Backend.
             </p>
@@ -112,7 +111,7 @@ export default async function Home() {
             className="hover:text-indigo-500"
           >
             <p className="flex items-center space-x-3">
-              {" "}
+              {' '}
               <svg
                 width="15"
                 height="15"
@@ -137,7 +136,7 @@ export default async function Home() {
             className="hover:text-indigo-500"
           >
             <p className="flex items-center space-x-3">
-              {" "}
+              {' '}
               <svg
                 width="15"
                 height="15"

@@ -1,7 +1,6 @@
-import { FC } from "react";
+import { FC } from 'react';
 
-
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 interface PageProps {
   params: {
@@ -9,7 +8,7 @@ interface PageProps {
   };
 }
 
-const Page: FC<PageProps> = ({params}) => {
+const Page: FC<PageProps> = ({ params }) => {
   return (
     <>
       <div>Page</div>

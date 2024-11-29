@@ -1,12 +1,12 @@
-"use client";
-import { createGameAndInsertQuestions, generateTrivia } from "@/app/actions";
-import { Button } from "@/components/ui/button";
-import { CREATE_GAME, GENERATE_TRIVIA } from "@/lib/queries";
-import { useLazyQuery, useMutation } from "@apollo/client";
-import { format, set } from "date-fns";
-import { useRouter } from "next/navigation";
-import { FC, useState } from "react";
-import { toast } from "sonner";
+'use client';
+import { createGameAndInsertQuestions, generateTrivia } from '@/app/actions';
+import { Button } from '@/components/ui/button';
+import { CREATE_GAME, GENERATE_TRIVIA } from '@/lib/queries';
+import { useLazyQuery, useMutation } from '@apollo/client';
+import { format, set } from 'date-fns';
+import { useRouter } from 'next/navigation';
+import { FC, useState } from 'react';
+import { toast } from 'sonner';
 
 interface InfoBlockProps {
   data: {
@@ -40,7 +40,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
 }) => {
   const movie = data.movieById;
   const router = useRouter();
-  const formattedDate = format(new Date(movie.release_date), "MMMM d, yyyy");
+  const formattedDate = format(new Date(movie.release_date), 'MMMM d, yyyy');
   const maxStars = 10;
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [triviaQuestions, setTriviaQuestions] = useState<TriviaQuestion[]>([]);
@@ -91,52 +91,52 @@ const InfoBlock: FC<InfoBlockProps> = ({
   // });
   const sendQuestionsToBackend = async (questions: any) => {
     try {
-      console.log("SENDING QUESTIONS TO BACKEND", questions);
-      console.log("TRIVIA QUESTIONS", triviaQuestions);
+      console.log('SENDING QUESTIONS TO BACKEND', questions);
+      console.log('TRIVIA QUESTIONS', triviaQuestions);
       const cleanedQuestions = questions.generateTrivia.map(
-        ({ __typename, ...q }: { __typename?: string }) => q
+        ({ __typename, ...q }: { __typename?: string }) => q,
       );
-      console.log("CLEANED QUESTIONS", cleanedQuestions);
+      console.log('CLEANED QUESTIONS', cleanedQuestions);
       const payload = {
         movieId: movieId as string, // Ensure this ID is available and an integer
         movieTitle: data.movieById.title as string,
         questions: cleanedQuestions,
       };
-      console.log("PAYLOAD to backend", payload);
+      console.log('PAYLOAD to backend', payload);
       const gameCreateResponse = await createGameAndInsertQuestions({
         payload,
       });
-      console.log("GAME CREATE RESPONSE", gameCreateResponse.data);
+      console.log('GAME CREATE RESPONSE', gameCreateResponse.data);
       if (gameCreateResponse.data) {
         toast.success(
-          `Game created successfully! Game ID: ${gameCreateResponse.data.createGameAndInsertQuestions}`
+          `Game created successfully! Game ID: ${gameCreateResponse.data.createGameAndInsertQuestions}`,
         );
         router.push(
-          `/dashboard/movie/${movieId}/trivia/${gameCreateResponse.data.createGameAndInsertQuestions}`
+          `/dashboard/movie/${movieId}/trivia/${gameCreateResponse.data.createGameAndInsertQuestions}`,
         );
       } else {
-        console.error("No game ID received:", gameCreateResponse);
-        toast.error("Failed to create game.");
+        console.error('No game ID received:', gameCreateResponse);
+        toast.error('Failed to create game.');
       }
     } catch (error) {
-      console.error("Error saving game and questions:", error);
-      toast.error("Error saving game and trivia questions.");
+      console.error('Error saving game and questions:', error);
+      toast.error('Error saving game and trivia questions.');
     }
   };
   const handleTriviaClick = async () => {
-    console.log("TRIVIA CLICKED");
+    console.log('TRIVIA CLICKED');
     setLoading(true);
     const generateTriviaResponse = await generateTrivia({
       prompt: `Here is the content of the movie: ${movieDataAsString}`,
     });
-    console.log("TRIVIA RESPONSE", generateTriviaResponse.data);
-    toast.success("Trivia questions generated successfully!");
-    toast.success("Sending to backend to generate quiz");
-    console.log("SENDING QUESTIONS TO BACKEND", generateTriviaResponse.data);
+    console.log('TRIVIA RESPONSE', generateTriviaResponse.data);
+    toast.success('Trivia questions generated successfully!');
+    toast.success('Sending to backend to generate quiz');
+    console.log('SENDING QUESTIONS TO BACKEND', generateTriviaResponse.data);
     const createGame = await sendQuestionsToBackend(
-      generateTriviaResponse.data
+      generateTriviaResponse.data,
     );
-    console.log("CREATE GAME RESPONSE", createGame);
+    console.log('CREATE GAME RESPONSE', createGame);
     setLoading(false);
   };
 
@@ -158,12 +158,12 @@ const InfoBlock: FC<InfoBlockProps> = ({
                 <span
                   key={i}
                   className={`text-2xl ${
-                    i < stars ? "text-yellow-400" : "text-gray-400"
+                    i < stars ? 'text-yellow-400' : 'text-gray-400'
                   }`}
                 >
                   ★
                 </span>
-              ))}{" "}
+              ))}{' '}
             </div>
             <span>{movie.vote_average.toFixed(1)}</span>
           </div>
@@ -232,15 +232,15 @@ const parseAIResponse = (aiResponseString: string): QuizQuestion[] => {
   try {
     // Clean up the string first
     let cleanedString = aiResponseString
-      .replace(/\\n/g, "") // Remove \n
-      .replace(/\\/g, "") // Remove backslashes
+      .replace(/\\n/g, '') // Remove \n
+      .replace(/\\/g, '') // Remove backslashes
       .replace(/'/g, '"'); // Replace single quotes with double quotes
 
     // Now, attempt to parse the cleaned string
     const parsed = JSON.parse(cleanedString);
     return parsed.questions;
   } catch (error) {
-    console.error("Failed to parse AI response:", error);
+    console.error('Failed to parse AI response:', error);
     return [];
   }
 };

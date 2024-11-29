@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import Link from "next/link";
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import Link from 'next/link';
 
-import { FC } from "react";
+import { FC } from 'react';
 
 interface MovieSearchProps {
   movieInfo: any;
@@ -13,7 +13,7 @@ const TopMovie: FC<MovieSearchProps> = ({ movieInfo }) => {
   const getPosterUrl = (posterPath: string) => {
     return posterPath
       ? `https://image.tmdb.org/t/p/w200${posterPath}`
-      : "https://via.placeholder.com/200x300?text=No+Image";
+      : 'https://via.placeholder.com/200x300?text=No+Image';
   };
   return (
     <div>
@@ -38,7 +38,9 @@ const TopMovie: FC<MovieSearchProps> = ({ movieInfo }) => {
 
                   <CardFooter className="flex flex-col text-center p-0 pb-3 space-y-1">
                     <p className="text-lg">{movie.title}</p>
-                    <p className="text-sm text-primary/80">{movie.vote_average.toFixed(1)}</p>
+                    <p className="text-sm text-primary/80">
+                      {movie.vote_average.toFixed(1)}
+                    </p>
                   </CardFooter>
                 </Link>
               </Card>

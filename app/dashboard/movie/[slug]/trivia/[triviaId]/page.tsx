@@ -1,7 +1,7 @@
-import { getClient } from "@/lib/apollo-client";
-import { GET_QUESTIONS_BY_GAME_ID } from "@/lib/queries";
-import { FC } from "react";
-import TriviaQuiz from "../_components/trivia-card";
+import { getClient } from '@/lib/apollo-client';
+import { GET_QUESTIONS_BY_GAME_ID } from '@/lib/queries';
+import { FC } from 'react';
+import TriviaQuiz from '../_components/trivia-card';
 
 interface PageProps {
   params: {
@@ -9,7 +9,7 @@ interface PageProps {
   };
 }
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 const Page: FC<PageProps> = async ({ params }) => {
   const { data } = await getClient().query({

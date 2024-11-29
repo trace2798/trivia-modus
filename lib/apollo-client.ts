@@ -1,9 +1,9 @@
-import { HttpLink } from "@apollo/client";
+import { HttpLink } from '@apollo/client';
 import {
   registerApolloClient,
   ApolloClient,
   InMemoryCache,
-} from "@apollo/experimental-nextjs-app-support";
+} from '@apollo/experimental-nextjs-app-support';
 
 export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
   return new ApolloClient({
@@ -14,12 +14,12 @@ export const { getClient, query, PreloadQuery } = registerApolloClient(() => {
       uri: process.env.MODUS_API_BASE,
       //Uncomment this header part if you want to communicate with the hosted version or before deploying where you will need a hosted version.
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${process.env.HYPERMODE_API_TOKEN}`,
       },
       // you can disable result caching here if you want to
       // (this does not work if you are rendering your page with `export const dynamic = "force-static"`)
-      fetchOptions: { cache: "no-store" },
+      fetchOptions: { cache: 'no-store' },
     }),
   });
 });

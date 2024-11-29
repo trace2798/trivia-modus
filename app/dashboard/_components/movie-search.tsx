@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import { getMovieBySearch } from "@/app/actions";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Skeleton } from "@/components/ui/skeleton";
-import Link from "next/link";
-import { FC, useState } from "react";
-import { toast } from "sonner";
+import { getMovieBySearch } from '@/app/actions';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Skeleton } from '@/components/ui/skeleton';
+import Link from 'next/link';
+import { FC, useState } from 'react';
+import { toast } from 'sonner';
 
 interface MovieSearchProps {}
 
 const MovieSearch: FC<MovieSearchProps> = ({}) => {
-  const [movieName, setMovieName] = useState("");
+  const [movieName, setMovieName] = useState('');
   const [movieInfo, setMovieInfo] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   // const [getMovie, { loading, error }] = useLazyQuery(GET_MOVIE, {
   //   fetchPolicy: "no-cache",
   //   onError: (err) => toast.error("Something went wrong. Try Again"),
@@ -31,22 +31,22 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
 
   const handleSearch = async () => {
     if (!movieName.trim()) {
-      alert("Please enter a movie name!");
+      alert('Please enter a movie name!');
       return;
     }
-    console.log("MOVIE NAME", movieName);
+    console.log('MOVIE NAME', movieName);
     setLoading(true);
     const response = await getMovieBySearch({ name: movieName });
     const data = await response.data;
     if (data && data.movieInfo) {
-      console.log("MOVIE INFO", data.movieInfo);
+      console.log('MOVIE INFO', data.movieInfo);
       setMovieInfo(data.movieInfo); // Set all movies
-      toast.success("Movie found successfully!");
+      toast.success('Movie found successfully!');
       setLoading(false);
     } else {
-      toast.error("No movie found!");
-      setError("No movie information found.");
-      console.error("No movie information found:", data);
+      toast.error('No movie found!');
+      setError('No movie information found.');
+      console.error('No movie information found:', data);
     }
     // getMovie({ variables: { name: movieName } });
   };
@@ -54,7 +54,7 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
   const getPosterUrl = (posterPath: string) => {
     return posterPath
       ? `https://image.tmdb.org/t/p/w200${posterPath}`
-      : "https://via.placeholder.com/200x300?text=No+Image";
+      : 'https://via.placeholder.com/200x300?text=No+Image';
   };
   return (
     <div>
@@ -70,15 +70,15 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
           disabled={loading || !movieName.trim()}
           className="max-w-[200px]"
         >
-          {loading ? "Loading..." : "Search Movie"}
+          {loading ? 'Loading...' : 'Search Movie'}
         </Button>
         {error && <p className="text-red-500">{error}</p>}
       </div>
       <div>
         {loading && (
           <div>
-            {" "}
-            <Skeleton className="size-60 mt-5" />{" "}
+            {' '}
+            <Skeleton className="size-60 mt-5" />{' '}
           </div>
         )}
       </div>

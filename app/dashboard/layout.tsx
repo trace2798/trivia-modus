@@ -1,6 +1,6 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { ApolloWrapper } from "@/lib/apollo-wrapper";
+import { AppSidebar } from '@/components/app-sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { ApolloWrapper } from '@/lib/apollo-wrapper';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

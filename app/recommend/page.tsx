@@ -1,7 +1,7 @@
-import { FC } from "react";
-import RecommendMovieSearch from "./_components/recommend-movie-search";
-import { Separator } from "@/components/ui/separator";
-import Navbar from "@/components/navbar";
+import { FC } from 'react';
+import RecommendMovieSearch from './_components/recommend-movie-search';
+import { Separator } from '@/components/ui/separator';
+import Navbar from '@/components/navbar';
 
 interface PageProps {}
 

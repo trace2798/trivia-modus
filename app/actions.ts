@@ -1,13 +1,13 @@
-"use server";
+'use server';
 
-import { getClient } from "@/lib/apollo-client";
+import { getClient } from '@/lib/apollo-client';
 import {
   CREATE_GAME,
   GENERATE_TRIVIA,
   GET_MOVIE,
   RECOMMEND_MOVIE,
   UPSERT_MOVIE,
-} from "@/lib/queries";
+} from '@/lib/queries';
 
 type FetchQueryProps = {
   query: string;
@@ -19,17 +19,17 @@ const fetchQuery = async ({ query, variables }: FetchQueryProps) => {
     const res = await fetch(
       process.env.NEXT_PUBLIC_HYPERMODE_API_ENDPOINT as string,
       {
-        method: "POST",
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${process.env.HYPERMODE_API_TOKEN}`,
         },
         body: JSON.stringify({
           query,
           variables,
         }),
-        cache: "no-store",
-      }
+        cache: 'no-store',
+      },
     );
 
     if (res.status < 200 || res.status >= 300) {
@@ -39,7 +39,7 @@ const fetchQuery = async ({ query, variables }: FetchQueryProps) => {
     const { data, error, errors } = await res.json();
     return { data, error: error || errors };
   } catch (err) {
-    console.error("error in fetchQuery:", err);
+    console.error('error in fetchQuery:', err);
     return { data: null, error: err };
   }
 };
@@ -79,7 +79,7 @@ export const getMovieBySearch = async ({
     query: GET_MOVIE,
     variables: { name: movieName },
   });
-  console.log("MOVIE INFO SEARCH ACTION", data);
+  console.log('MOVIE INFO SEARCH ACTION', data);
   return { data, error };
 };
 
@@ -106,7 +106,7 @@ export const createGameAndInsertQuestions = async ({
 }: {
   payload: CreateGameAndInsertQuestionsPayload;
 }) => {
-  console.log("createGameAndInsertQuestions ACTION", payload);
+  console.log('createGameAndInsertQuestions ACTION', payload);
   const { data, errors } = await getClient().mutate({
     mutation: CREATE_GAME,
     variables: { ...payload },

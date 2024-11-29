@@ -1,4 +1,4 @@
-import { redirect } from "next/navigation";
+import { redirect } from 'next/navigation';
 
 interface PageProps {
   params: {
@@ -7,7 +7,7 @@ interface PageProps {
 }
 
 const Page = ({}) => {
-  redirect("/dashboard/movie");
+  redirect('/dashboard/movie');
 };
 
 export default Page;

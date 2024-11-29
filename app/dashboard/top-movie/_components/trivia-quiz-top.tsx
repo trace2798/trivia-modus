@@ -1,9 +1,9 @@
-"use client";
-import React, { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+'use client';
+import React, { useState } from 'react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Label } from '@/components/ui/label';
 
 type TriviaQuestionTop = {
   question: string;
@@ -13,13 +13,13 @@ type TriviaQuestionTop = {
 
 const TriviaQuizTop = ({ questions }: { questions: TriviaQuestionTop[] }) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [selectedAnswer, setSelectedAnswer] = useState('');
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [hasAnswered, setHasAnswered] = useState(false);
 
   const validQuestions = questions.filter(
-    (q) => q.question && q.options.length > 0 && q.answer
+    (q) => q.question && q.options.length > 0 && q.answer,
   );
 
   const currentQuestion = validQuestions[currentQuestionIndex];
@@ -41,29 +41,29 @@ const TriviaQuizTop = ({ questions }: { questions: TriviaQuestionTop[] }) => {
       setShowResult(true);
     } else {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedAnswer("");
+      setSelectedAnswer('');
       setHasAnswered(false);
     }
   };
 
   const handleRestart = () => {
     setCurrentQuestionIndex(0);
-    setSelectedAnswer("");
+    setSelectedAnswer('');
     setScore(0);
     setShowResult(false);
     setHasAnswered(false);
   };
 
   const getOptionStyle = (option: string) => {
-    if (!hasAnswered) return "text-primary";
+    if (!hasAnswered) return 'text-primary';
 
     if (option === currentQuestion.answer) {
-      return "text-green-600 font-semibold";
+      return 'text-green-600 font-semibold';
     }
     if (option === selectedAnswer && option !== currentQuestion.answer) {
-      return "text-red-600 font-semibold";
+      return 'text-red-600 font-semibold';
     }
-    return "text-primary";
+    return 'text-primary';
   };
 
   if (validQuestions.length === 0) {
@@ -129,7 +129,7 @@ const TriviaQuizTop = ({ questions }: { questions: TriviaQuestionTop[] }) => {
         </div>
         <div className="flex justify-between items-center">
           <Button onClick={handleNext} disabled={!hasAnswered}>
-            {isLastQuestion ? "Finish" : "Next"}
+            {isLastQuestion ? 'Finish' : 'Next'}
           </Button>
         </div>
       </CardContent>

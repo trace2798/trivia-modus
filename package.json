@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev --turbo",
+    "format": "prettier --write .",
+    "lint": "next lint",
+    "start": "next start"
   },
+  "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
     "@apollo/client": "^3.11.10",
     "@apollo/experimental-nextjs-app-support": "^0.11.6",
@@ -33,15 +35,18 @@
     "react-dom": "^18",
     "sonner": "^1.7.0",
     "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "use-debounce": "^10.0.4"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@vercel/style-guide": "^6.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
+    "prettier": "^3.4.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

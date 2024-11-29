@@ -1,16 +1,16 @@
-import { ThemeProvider } from "@/components/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
-import { ClerkProvider } from "@clerk/nextjs";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from '@/components/ui/sonner';
+import { ClerkProvider } from '@clerk/nextjs';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Rec & Triv",
+  title: 'Rec & Triv',
   description:
-    "Rec & Triv is my submission for Modus Hackathon 2024 hosted on Hashnode.",
+    'Rec & Triv is my submission for Modus Hackathon 2024 hosted on Hashnode.',
 };
 
 export default function RootLayout({

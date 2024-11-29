@@ -1,35 +1,44 @@
-"use client";
-import { recommendMovie } from "@/app/actions";
-import { Button } from "@/components/ui/button";
+'use client';
+import { recommendMovie } from '@/app/actions';
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Skeleton } from "@/components/ui/skeleton";
-import { useUser } from "@clerk/nextjs";
-import Link from "next/link";
-import { FC, useState } from "react";
-import { toast } from "sonner";
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useUser } from '@clerk/nextjs';
+import Link from 'next/link';
+import { FC, useEffect, useState } from 'react';
+import { toast } from 'sonner';
+import { useDebounce } from 'use-debounce';
 
 interface RecommendMovieSearchProps {}
 
 const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
-  const [movieName, setMovieName] = useState("");
+  const [movieName, setMovieName] = useState('');
+  const [debouncedMovieName] = useDebounce(movieName, 500);
   const [movieInfo, setMovieInfo] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const user = useUser();
-  console.log("USER", user.isSignedIn);
+  console.log('USER', user.isSignedIn);
+
+  useEffect(() => {
+    if (debouncedMovieName.trim()) {
+      handleSearch();
+    }
+  }, [debouncedMovieName]);
+
   const handleSearch = async () => {
     if (!movieName.trim()) {
-      alert("Please enter a movie name!");
+      alert('Please enter a movie name!');
       return;
     }
-    console.log("MOVIE NAME", movieName);
+    console.log('MOVIE NAME', movieName);
     setLoading(true);
 
     try {
@@ -43,18 +52,18 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
           release_date: obj.movie.release_date,
           score: obj.score,
         }));
-        console.log("MOVIE INFO", movies);
+        console.log('MOVIE INFO', movies);
         setMovieInfo(movies);
-        toast.success("Movies found successfully!");
+        toast.success('Movies found successfully!');
       } else {
-        toast.error("No movies found!");
-        setError("No movie information found.");
-        console.error("No movie information found:", data);
+        toast.error('No movies found!');
+        setError('No movie information found.');
+        console.error('No movie information found:', data);
       }
     } catch (error) {
-      console.error("Error during movie search:", error);
-      toast.error("An error occurred while searching for movies.");
-      setError("An error occurred.");
+      console.error('Error during movie search:', error);
+      toast.error('An error occurred while searching for movies.');
+      setError('An error occurred.');
     } finally {
       setLoading(false);
     }
@@ -69,23 +78,25 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
           value={movieName}
           onChange={(e) => setMovieName(e.target.value)}
         />
-        <Button
+        {/* <Button
           onClick={handleSearch}
           disabled={loading || !movieName.trim()}
           className="max-w-[200px]"
         >
           {loading ? "Loading..." : "Recommend Movie"}
-        </Button>
+        </Button> */}
         {error && <p className="text-red-500">{error}</p>}
       </div>
       <div>
         {loading && (
-          <div className="flex flex-col space-y-3">
-            {" "}
-            <Skeleton className="w-full h-60 mt-5" />{" "}
-            <Skeleton className="w-full h-60 mt-5" />{" "}
-            <Skeleton className="w-full h-60 mt-5" />{" "}
-            <Skeleton className="w-full h-60 mt-5" />{" "}
+          <div className="flex flex-col space-y-3 mt-5">
+            {' '}
+            <Skeleton className="w-full h-32 animate-pulse" />{' '}
+            <Skeleton className="w-full h-32 mt-5 animate-pulse" />
+            <Skeleton className="w-full h-32 mt-5 animate-pulse" />
+            <Skeleton className="w-full h-32 mt-5 animate-pulse" />
+            <Skeleton className="w-full h-32 mt-5 animate-pulse" />
+            <Skeleton className="w-full h-32 mt-5 animate-pulse" />
           </div>
         )}
       </div>
@@ -107,13 +118,21 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
                   </CardHeader>
                   <CardFooter>
                     {user.isSignedIn ? (
-                      <Button variant="outline" className="w-full max-w-[150px]" asChild>
+                      <Button
+                        variant="outline"
+                        className="w-full max-w-[150px]"
+                        asChild
+                      >
                         <Link href={`/dashboard/movie/${parseInt(movie.id)}`}>
                           Read More
                         </Link>
                       </Button>
                     ) : (
-                      <Button variant="outline" className="w-full" asChild>
+                      <Button
+                        variant="secondary"
+                        className="w-full max-w-[150px]"
+                        asChild
+                      >
                         <Link href="/sign-in">Login to Read More</Link>
                       </Button>
                     )}

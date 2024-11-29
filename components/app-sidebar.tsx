@@ -1,8 +1,4 @@
-import {
-  Clapperboard,
-  LayoutDashboard,
-  Search
-} from "lucide-react";
+import { Clapperboard, LayoutDashboard, Search } from 'lucide-react';
 
 import {
   Sidebar,
@@ -14,39 +10,40 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar";
-import { SignOutButton } from "@clerk/nextjs";
-import { auth } from "@clerk/nextjs/server";
-import UserButton from "./user-button";
+} from '@/components/ui/sidebar';
+import { SignOutButton } from '@clerk/nextjs';
+import { auth } from '@clerk/nextjs/server';
+import UserButton from './user-button';
+import { Separator } from './ui/separator';
 // import { UserButton } from "@stackframe/stack";
 
 const items = [
   {
-    title: "Dashboard",
-    url: "/dashboard",
+    title: 'Dashboard',
+    url: '/dashboard',
     icon: LayoutDashboard,
   },
   {
-    title: "Search Movie",
-    url: "/dashboard/movie",
+    title: 'Search Movie',
+    url: '/dashboard/movie',
     icon: Search,
   },
   {
-    title: "Recommend",
-    url: "/recommend",
+    title: 'Recommend',
+    url: '/recommend',
     icon: Clapperboard,
   },
-
 ];
 
 export async function AppSidebar() {
   const { userId, redirectToSignIn } = await auth();
-  console.log("USER ID Side bar", userId);
+  console.log('USER ID Side bar', userId);
   return (
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
           <SidebarGroupLabel className="text-3xl">Rec & Triv</SidebarGroupLabel>
+          <Separator className="w-full my-3" />
           <SidebarGroupContent className="mt-3">
             <SidebarMenu className="flex flex-col space-y-3">
               {items.map((item) => (

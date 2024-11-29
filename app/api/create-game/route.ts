@@ -1,6 +1,6 @@
 // pages/api/create-game.ts
 
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   const body = await req.json();
@@ -12,7 +12,7 @@ export async function POST(req: Request) {
   //   return;
   // }
   return NextResponse.json({
-    message: "Game and questions saved successfully!",
+    message: 'Game and questions saved successfully!',
   });
 
   //   try {

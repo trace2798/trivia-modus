@@ -1,10 +1,10 @@
-"use client";
-import { FC, useEffect } from "react";
-import TriviaQuizTop from "./trivia-quiz-top";
-import { toast } from "sonner";
-import { useMutation } from "@apollo/client";
-import { CREATE_GAME, CREATE_GAME_TOP } from "@/lib/queries";
-import { useRouter } from "next/navigation";
+'use client';
+import { FC, useEffect } from 'react';
+import TriviaQuizTop from './trivia-quiz-top';
+import { toast } from 'sonner';
+import { useMutation } from '@apollo/client';
+import { CREATE_GAME, CREATE_GAME_TOP } from '@/lib/queries';
+import { useRouter } from 'next/navigation';
 
 type TriviaQuestion = {
   question: string;
@@ -32,17 +32,17 @@ const QuestionFE: FC<QuestionFEProps> = ({ data, movieId, movieTitle }) => {
     { data: mutationData, loading: mutationLoading, error: mutationError },
   ] = useMutation(CREATE_GAME_TOP, {
     onCompleted: (data) => {
-      console.log("Mutation completed:", data);
+      console.log('Mutation completed:', data);
       toast.success(
-        `Game created successfully! Game ID: ${data.createGameAndInsertQuestionsTop}`
+        `Game created successfully! Game ID: ${data.createGameAndInsertQuestionsTop}`,
       );
       router.push(
-        `/dashboard/top-movie/trivia/${data.createGameAndInsertQuestionsTop}`
+        `/dashboard/top-movie/trivia/${data.createGameAndInsertQuestionsTop}`,
       );
     },
     onError: (error) => {
-      console.error("Error creating game:", error);
-      toast.error("Error saving game and trivia questions.");
+      console.error('Error creating game:', error);
+      toast.error('Error saving game and trivia questions.');
     },
   });
 
@@ -50,7 +50,6 @@ const QuestionFE: FC<QuestionFEProps> = ({ data, movieId, movieTitle }) => {
   const sendQuestionsToBackend = async (questions: TriviaQuestion[]) => {
     try {
       // Clean up questions to remove any extraneous fields
-    
 
       // Prepare payload
       const payload = {
@@ -62,8 +61,8 @@ const QuestionFE: FC<QuestionFEProps> = ({ data, movieId, movieTitle }) => {
       // Call the mutation
       await createGameAndInsertQuestionsTop({ variables: payload });
     } catch (error) {
-      console.error("Error saving game and questions:", error);
-      toast.error("Error saving game and trivia questions.");
+      console.error('Error saving game and questions:', error);
+      toast.error('Error saving game and trivia questions.');
     }
   };
 

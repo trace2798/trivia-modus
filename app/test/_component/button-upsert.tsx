@@ -41,11 +41,11 @@
 // };
 
 // export default ButtonUpsert;
-"use client";
-import { upsertMovie } from "@/app/actions";
-import { Button } from "@/components/ui/button";
-import { FC } from "react";
-import { toast } from "sonner";
+'use client';
+import { upsertMovie } from '@/app/actions';
+import { Button } from '@/components/ui/button';
+import { FC } from 'react';
+import { toast } from 'sonner';
 
 interface Movie {
   id: number | string;
@@ -59,7 +59,7 @@ interface ButtonUpsertProps {
 }
 
 const ButtonUpsert: FC<ButtonUpsertProps> = ({ movies }) => {
-  console.log("BUTTON", movies);
+  console.log('BUTTON', movies);
 
   const handleUpsertClick = async () => {
     try {
@@ -70,15 +70,20 @@ const ButtonUpsert: FC<ButtonUpsertProps> = ({ movies }) => {
 
       results.forEach((result, index) => {
         const movie = movies[index];
-        if (result.status === "fulfilled") {
+        if (result.status === 'fulfilled') {
           console.log(`Successfully upserted movie ID: ${movie.id}`);
-          toast.success(`Successfully upserted movie ID: ${movie.id}, ${movie.title}`);
+          toast.success(
+            `Successfully upserted movie ID: ${movie.id}, ${movie.title}`,
+          );
         } else {
-          console.error(`Failed to upsert movie ID: ${movie.id}`, result.reason);
+          console.error(
+            `Failed to upsert movie ID: ${movie.id}`,
+            result.reason,
+          );
         }
       });
     } catch (error) {
-      console.error("Unexpected error during upserting movies:", error);
+      console.error('Unexpected error during upserting movies:', error);
     }
   };
 

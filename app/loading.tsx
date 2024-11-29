@@ -1,4 +1,4 @@
-import { Skeleton } from "@/components/ui/skeleton";
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Loading() {
   // Stack uses React Suspense, which will render this page while user data is being fetched.
