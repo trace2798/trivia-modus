@@ -1,11 +1,13 @@
 "use client";
 
+import { getMovieBySearch } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Skeleton } from "@/components/ui/skeleton";
 import { GET_MOVIE } from "@/lib/queries";
 import { useLazyQuery } from "@apollo/client";
-import { format } from "date-fns";
+import { format, set } from "date-fns";
 import Link from "next/link";
 
 import { FC, useState } from "react";
@@ -16,26 +18,41 @@ interface MovieSearchProps {}
 const MovieSearch: FC<MovieSearchProps> = ({}) => {
   const [movieName, setMovieName] = useState("");
   const [movieInfo, setMovieInfo] = useState([]);
-
-  const [getMovie, { loading, error }] = useLazyQuery(GET_MOVIE, {
-    fetchPolicy: "no-cache",
-    onError: (err) => toast.error("Something went wrong. Try Again"),
-    onCompleted: (data) => {
-      if (data && data.movieInfo) {
-        console.log("MOVIE INFO", data.movieInfo);
-        setMovieInfo(data.movieInfo); // Set all movies
-      } else {
-        console.error("No movie information found:", data);
-      }
-    },
-  });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  // const [getMovie, { loading, error }] = useLazyQuery(GET_MOVIE, {
+  //   fetchPolicy: "no-cache",
+  //   onError: (err) => toast.error("Something went wrong. Try Again"),
+  //   onCompleted: (data) => {
+  //     if (data && data.movieInfo) {
+  //       console.log("MOVIE INFO", data.movieInfo);
+  //       setMovieInfo(data.movieInfo); // Set all movies
+  //     } else {
+  //       console.error("No movie information found:", data);
+  //     }
+  //   },
+  // });
 
   const handleSearch = async () => {
     if (!movieName.trim()) {
       alert("Please enter a movie name!");
       return;
     }
-    getMovie({ variables: { name: movieName } });
+    console.log("MOVIE NAME", movieName);
+    setLoading(true);
+    const response = await getMovieBySearch({ name: movieName });
+    const data = await response.data;
+    if (data && data.movieInfo) {
+      console.log("MOVIE INFO", data.movieInfo);
+      setMovieInfo(data.movieInfo); // Set all movies
+      toast.success("Movie found successfully!");
+      setLoading(false);
+    } else {
+      toast.error("No movie found!");
+      setError("No movie information found.");
+      console.error("No movie information found:", data);
+    }
+    // getMovie({ variables: { name: movieName } });
   };
 
   const getPosterUrl = (posterPath: string) => {
@@ -59,11 +76,16 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
         >
           {loading ? "Loading..." : "Search Movie"}
         </Button>
-        {error && (
-          <p className="text-red-500">Error: Something went wrong. Try Again</p>
+        {error && <p className="text-red-500">{error}</p>}
+      </div>
+      <div>
+        {loading && (
+          <div>
+            {" "}
+            <Skeleton className="size-60 mt-5" />{" "}
+          </div>
         )}
       </div>
-
       {movieInfo.length > 0 && (
         <div className="mt-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
@@ -85,8 +107,7 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
 
                   <CardFooter className="flex flex-col text-center p-0 pb-3">
                     <p className="text-lg">{movie.title}</p>
-                    <p className="text-sm text-primary/80">
-                    </p>
+                    <p className="text-sm text-primary/80"></p>
                   </CardFooter>
                 </Link>
               </Card>

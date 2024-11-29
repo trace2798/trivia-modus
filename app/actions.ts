@@ -1,5 +1,8 @@
 "use server";
 
+import { getClient } from "@/lib/apollo-client";
+import { GET_MOVIE, GET_QUOTE } from "@/lib/queries";
+
 type FetchQueryProps = {
   query: string;
   variables?: any;
@@ -60,3 +63,16 @@ export async function getTopMovies() {
     return { data };
   }
 }
+
+export const getMovieBySearch = async ({
+  name: movieName,
+}: {
+  name: string;
+}) => {
+  const { data, error } = await getClient().query({
+    query: GET_MOVIE,
+    variables: { name: movieName },
+  });
+  console.log("MOVIE INFO SEARCH ACTION", data);
+  return { data, error };
+};
