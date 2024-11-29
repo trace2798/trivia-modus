@@ -12,7 +12,8 @@ import {
 function makeClient() {
   const httpLink = new HttpLink({
     // this needs to be an absolute url, as relative urls cannot be used in SSR
-    uri: process.env.NEXT_PUBLIC_MODUS_API_BASE,
+    uri: process.env.MODUS_API_BASE,
+    //Uncomment this header part if you want to communicate with the hosted version or before deploying where you will need a hosted version.
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${process.env.HYPERMODE_API_TOKEN}`,
