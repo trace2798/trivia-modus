@@ -78,13 +78,6 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
           value={movieName}
           onChange={(e) => setMovieName(e.target.value)}
         />
-        {/* <Button
-          onClick={handleSearch}
-          disabled={loading || !movieName.trim()}
-          className="max-w-[200px]"
-        >
-          {loading ? "Loading..." : "Recommend Movie"}
-        </Button> */}
         {error && <p className="text-red-500">{error}</p>}
       </div>
       <div>

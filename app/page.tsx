@@ -90,7 +90,7 @@ export default async function Home() {
             {user.userId ? (
               <Link href={`/dashboard`} className="">
                 <button className="bg-green-900 text-white py-2 px-4 rounded-md hover:bg-pink-900 transition">
-                  Start Trivia
+                  Play Trivia
                 </button>
               </Link>
             ) : (
