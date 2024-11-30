@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default async function Home() {
   const user = await auth();
-  console.log('USER INFO', user);
+  //console.log('USER INFO', user);
   return (
     <>
       <Navbar />

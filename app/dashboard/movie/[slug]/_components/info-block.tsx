@@ -25,7 +25,6 @@ interface InfoBlockProps {
   clerkUserId: string;
 }
 
-
 const InfoBlock: FC<InfoBlockProps> = ({
   data,
   movieDataAsString,
@@ -45,18 +44,18 @@ const InfoBlock: FC<InfoBlockProps> = ({
       const cleanedQuestions = questions.generateTrivia.map(
         ({ __typename, ...q }: { __typename?: string }) => q,
       );
-      console.log('CLEANED QUESTIONS', cleanedQuestions);
+      //console.log('CLEANED QUESTIONS', cleanedQuestions);
       const payload = {
         movieId: movieId as string, // Ensure this ID is available and an integer
         movieTitle: data.movieById.title as string,
         questions: cleanedQuestions,
         clerkUserId: clerkUserId as string,
       };
-      console.log('PAYLOAD to backend', payload);
+      //console.log('PAYLOAD to backend', payload);
       const gameCreateResponse = await createGameAndInsertQuestions({
         payload,
       });
-      console.log('GAME CREATE RESPONSE', gameCreateResponse.data);
+      //console.log('GAME CREATE RESPONSE', gameCreateResponse.data);
       if (gameCreateResponse.data) {
         toast.success(
           `Game created successfully! Game ID: ${gameCreateResponse.data.createGameAndInsertQuestions}`,
@@ -74,21 +73,21 @@ const InfoBlock: FC<InfoBlockProps> = ({
     }
   };
   const handleTriviaClick = async () => {
-    console.log('TRIVIA CLICKED');
+    //console.log('TRIVIA CLICKED');
     setLoading(true);
     setButtonText('AI Generating Questions');
     const generateTriviaResponse = await generateTrivia({
       prompt: `Here is the content of the movie: ${movieDataAsString}`,
     });
-    console.log('TRIVIA RESPONSE', generateTriviaResponse.data);
+    //console.log('TRIVIA RESPONSE', generateTriviaResponse.data);
     toast.success('Trivia questions generated successfully!');
     toast.success('Questions Generated');
     setButtonText('Creating Game. Hold Tight!');
-    console.log('SENDING QUESTIONS TO BACKEND', generateTriviaResponse.data);
+    //console.log('SENDING QUESTIONS TO BACKEND', generateTriviaResponse.data);
     const createGame = await sendQuestionsToBackend(
       generateTriviaResponse.data,
     );
-    console.log('CREATE GAME RESPONSE', createGame);
+    //console.log('CREATE GAME RESPONSE', createGame);
     // setLoading(false);
   };
 

@@ -4,9 +4,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   const body = await req.json();
-  console.log(body);
+  //console.log(body);
   const { movieId, movieTitle, questions } = body;
-  console.log(req.body);
+  //console.log(req.body);
   // if (!movieId || !movieTitle || !questions) {
   //   res.status(400).json({ error: "Missing required fields" });
   //   return;

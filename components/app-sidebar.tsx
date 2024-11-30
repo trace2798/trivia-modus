@@ -48,7 +48,7 @@ const items = [
 
 export async function AppSidebar() {
   const { userId, redirectToSignIn } = await auth();
-  console.log('USER ID Side bar', userId);
+  //console.log('USER ID Side bar', userId);
   return (
     <Sidebar>
       <SidebarContent>

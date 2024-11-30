@@ -102,7 +102,7 @@ const Page: FC<PageProps> = async ({}) => {
       </>
     );
   }
-  console.log('GAMES', data.gamesByUserId);
+  //console.log('GAMES', data.gamesByUserId);
   const totalGames = data.gamesByUserId.length;
   const games = data.gamesByUserId;
   const totalScore = games.reduce(

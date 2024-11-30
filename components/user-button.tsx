@@ -7,7 +7,7 @@ interface UserButtonProps {}
 
 const UserButton: FC<UserButtonProps> = ({}) => {
   const user = useUser();
-  console.log('USER button', user.user);
+  //console.log('USER button', user.user);
   return (
     <>
       <div>

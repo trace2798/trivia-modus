@@ -25,7 +25,7 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const user = useUser();
-  console.log('USER', user.isSignedIn);
+  //console.log('USER', user.isSignedIn);
 
   useEffect(() => {
     if (debouncedMovieName.trim()) {
@@ -38,7 +38,7 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
       alert('Please enter a movie name!');
       return;
     }
-    console.log('MOVIE NAME', movieName);
+    //console.log('MOVIE NAME', movieName);
     setLoading(true);
 
     try {
@@ -52,7 +52,7 @@ const RecommendMovieSearch: FC<RecommendMovieSearchProps> = ({}) => {
           release_date: obj.movie.release_date,
           score: obj.score,
         }));
-        console.log('MOVIE INFO', movies);
+        //console.log('MOVIE INFO', movies);
         setMovieInfo(movies);
         toast.success('Movies found successfully!');
       } else {

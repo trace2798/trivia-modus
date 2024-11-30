@@ -45,11 +45,11 @@ const TriviaQuiz = ({
 
     setSelectedAnswer(answer);
     setHasAnswered(true);
-    console.log(
-      'SELECTED ANSWER BY USER',
-      answer,
-      currentQuestion.correct_answer,
-    );
+    // console.log(
+    //   'SELECTED ANSWER BY USER',
+    //   answer,
+    //   currentQuestion.correct_answer,
+    // );
     const difficultyIncrement: Record<'easy' | 'medium' | 'hard', number> = {
       easy: 1,
       medium: 2,

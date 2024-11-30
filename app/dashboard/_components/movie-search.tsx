@@ -28,7 +28,7 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
   //   onError: (err) => toast.error("Something went wrong. Try Again"),
   //   onCompleted: (data) => {
   //     if (data && data.movieInfo) {
-  //       console.log("MOVIE INFO", data.movieInfo);
+  //       //console.log("MOVIE INFO", data.movieInfo);
   //       setMovieInfo(data.movieInfo); // Set all movies
   //     } else {
   //       console.error("No movie information found:", data);
@@ -41,12 +41,12 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
       alert('Please enter a movie name!');
       return;
     }
-    console.log('MOVIE NAME', movieName);
+    //console.log('MOVIE NAME', movieName);
     setLoading(true);
     const response = await getMovieBySearch({ name: movieName });
     const data = await response.data;
     if (data && data.movieInfo) {
-      console.log('MOVIE INFO', data.movieInfo);
+      //console.log('MOVIE INFO', data.movieInfo);
       setMovieInfo(data.movieInfo); // Set all movies
       toast.success('Movie found successfully!');
       setLoading(false);

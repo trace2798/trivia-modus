@@ -10,7 +10,7 @@
 //   const handleClick = async () => {
 //     const { data } = useSuspenseQuery(GET_QUOTE);
 
-//     console.log(data);
+//     //console.log(data);
 //   };
 //   return (
 //     <>
@@ -37,16 +37,16 @@ const QuoteButton: FC<QuoteButtonProps> = ({}) => {
   const [getQuote, { data, loading, error }] = useLazyQuery(GET_QUOTE, {
     fetchPolicy: 'no-cache',
     onCompleted: ({ randomQuote }) => {
-      console.log(randomQuote);
+      //console.log(randomQuote);
       const { quote, author } = randomQuote;
       setRes({ quote, author });
     },
   });
-  console.log('DATA', data);
+  //console.log('DATA', data);
   const handleClick = async () => {
     getQuote(); // Triggers the query
   };
-  console.log('DATA2', data);
+  //console.log('DATA2', data);
   return (
     <div>
       <Button onClick={handleClick}>Get Random Quote</Button>

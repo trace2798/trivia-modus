@@ -13,7 +13,7 @@ interface PageProps {
 export const dynamic = 'force-dynamic';
 
 const Page: FC<PageProps> = async ({ params }) => {
-  console.log('PARAMS', params);
+  //console.log('PARAMS', params);
   const { data } = await getClient().query({
     query: GET_QUESTIONS_BY_GAME_ID,
     variables: {

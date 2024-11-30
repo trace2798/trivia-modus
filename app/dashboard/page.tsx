@@ -8,11 +8,11 @@ export const dynamic = 'force-dynamic';
 
 const Page = async ({}) => {
   const user = await currentUser();
-  console.log('USER', user);
+  //console.log('USER', user);
   const { data: topMovie } = await getClient().query({
     query: GET_TOP_MOVIE,
   });
-  console.log('TOP MOVIE', topMovie.topMovies);
+  //console.log('TOP MOVIE', topMovie.topMovies);
   return (
     <>
       <div className="flex flex-col text-4xl p-12 space-y-6">

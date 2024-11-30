@@ -81,7 +81,7 @@ export const getMovieBySearch = async ({
     query: GET_MOVIE,
     variables: { name: movieName },
   });
-  console.log('MOVIE INFO SEARCH ACTION', data);
+  //console.log('MOVIE INFO SEARCH ACTION', data);
   return { data, error };
 };
 
@@ -109,7 +109,7 @@ export const createGameAndInsertQuestions = async ({
 }: {
   payload: CreateGameAndInsertQuestionsPayload;
 }) => {
-  console.log('createGameAndInsertQuestions ACTION', payload);
+  //console.log('createGameAndInsertQuestions ACTION', payload);
   const { data, errors } = await getClient().mutate({
     mutation: CREATE_GAME,
     variables: { ...payload },
@@ -145,7 +145,7 @@ export const updateGameStatusAndScore = async ({
   gameId: string;
   score: number;
 }) => {
-  console.log('updateGameStatus ACTION', gameId);
+  //console.log('updateGameStatus ACTION', gameId);
   const gameIdInt = parseInt(gameId, 10);
   const { data, errors } = await getClient().mutate({
     mutation: UPDATE_GAME_STATUS_AND_SCORE,
