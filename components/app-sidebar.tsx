@@ -1,4 +1,4 @@
-import { Clapperboard, LayoutDashboard, Search } from 'lucide-react';
+import { Clapperboard, Film, LayoutDashboard } from 'lucide-react';
 
 import {
   Sidebar,
@@ -9,12 +9,12 @@ import {
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem,
+  SidebarMenuItem
 } from '@/components/ui/sidebar';
 import { SignOutButton } from '@clerk/nextjs';
 import { auth } from '@clerk/nextjs/server';
-import UserButton from './user-button';
 import { Separator } from './ui/separator';
+import UserButton from './user-button';
 // import { UserButton } from "@stackframe/stack";
 
 const items = [
@@ -24,9 +24,9 @@ const items = [
     icon: LayoutDashboard,
   },
   {
-    title: 'Search Movie',
+    title: 'Trivia',
     url: '/dashboard/movie',
-    icon: Search,
+    icon: Film,
   },
   {
     title: 'Recommend',
@@ -42,7 +42,9 @@ export async function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-3xl">Rec & Triv</SidebarGroupLabel>
+          <SidebarGroupLabel className="text-3xl text-primary font-semibold">
+            Rec & Triv
+          </SidebarGroupLabel>
           <Separator className="w-full my-3" />
           <SidebarGroupContent className="mt-3">
             <SidebarMenu className="flex flex-col space-y-3">
@@ -63,15 +65,10 @@ export async function AppSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            {/* <UserButton /> */}
             <UserButton />
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              {/* <a href={`/handler/sign-out`}>
-                <LogOutIcon />
-                <span>Sign Out</span>
-              </a> */}
               <SignOutButton />
             </SidebarMenuButton>
           </SidebarMenuItem>

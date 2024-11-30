@@ -5,6 +5,9 @@ import { format } from 'date-fns';
 import { FC } from 'react';
 import InfoBlock from './_components/info-block';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from '@/components/ui/button';
+import { currentUser } from '@clerk/nextjs/server';
 
 interface pageProps {
   params: {
@@ -51,13 +54,14 @@ const page: FC<pageProps> = async ({ params }) => {
     };
 
     const movieDataAsString = JSON.stringify(movieData);
-
+    const user = await currentUser();
     return (
       <>
         <InfoBlock
           data={data}
           movieDataAsString={movieDataAsString}
           movieId={params.slug}
+          clerkUserId={user?.id as string}
         />
       </>
     );
@@ -66,7 +70,10 @@ const page: FC<pageProps> = async ({ params }) => {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <p>Failed to load the movie page. Please try again later.</p>
-        <Link href="/dashboard" className="mt-4">
+        <Link
+          href="/dashboard"
+          className={cn(buttonVariants({ variant: 'default' }))}
+        >
           Go Back to Dashboard
         </Link>
       </div>

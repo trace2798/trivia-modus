@@ -4,8 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { updateGameStatus } from '@/app/actions';
 
 type TriviaQuestion = {
+  id: string;
   question_text: string;
   options: string[];
   correct_answer: string;
@@ -13,7 +15,13 @@ type TriviaQuestion = {
   category: string;
 };
 
-const TriviaQuiz = ({ questions }: { questions: TriviaQuestion[] }) => {
+const TriviaQuiz = ({
+  questions,
+  gameId,
+}: {
+  questions: TriviaQuestion[];
+  gameId: string;
+}) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [score, setScore] = useState(0);
@@ -49,7 +57,7 @@ const TriviaQuiz = ({ questions }: { questions: TriviaQuestion[] }) => {
     }
   };
 
-  const handleRestart = () => {
+  const handleRestart = async () => {
     setCurrentQuestionIndex(0);
     setSelectedAnswer('');
     setScore(0);
@@ -57,6 +65,10 @@ const TriviaQuiz = ({ questions }: { questions: TriviaQuestion[] }) => {
     setHasAnswered(false);
   };
 
+  const handleFinish = async () => {
+    setShowResult(true);
+    await updateGameStatus({ gameId });
+  };
   const getOptionStyle = (option: string) => {
     if (!hasAnswered) return 'text-primary';
 
@@ -92,8 +104,11 @@ const TriviaQuiz = ({ questions }: { questions: TriviaQuestion[] }) => {
           <p className="text-center text-xl mb-4">
             Your score: {score} out of {validQuestions.length}
           </p>
-          <div className="text-center">
+          <div className="flex flex-col items-center md:flex-row md:justify-between">
             <Button onClick={handleRestart}>Restart Quiz</Button>
+            <a href="/dashboard" className="mt-4 md:mt-0">
+              <Button onClick={handleRestart}>Back To Dashboard</Button>
+            </a>
           </div>
         </CardContent>
       </Card>
@@ -105,7 +120,8 @@ const TriviaQuiz = ({ questions }: { questions: TriviaQuestion[] }) => {
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>
-            Question {currentQuestionIndex + 1} of {validQuestions.length}
+            Question {currentQuestionIndex + 1} of {validQuestions.length}. DB
+            NUMBER is {currentQuestion.id}
           </span>
           <span className="text-sm">Score: {score}</span>
         </CardTitle>
@@ -138,9 +154,18 @@ const TriviaQuiz = ({ questions }: { questions: TriviaQuestion[] }) => {
             Difficulty:{' '}
             <span className="capitalize">{currentQuestion.difficulty}</span>
           </div>
-          <Button onClick={handleNext} disabled={!hasAnswered}>
+          {/* <Button onClick={handleNext} disabled={!hasAnswered}>
             {isLastQuestion ? 'Finish' : 'Next'}
-          </Button>
+          </Button> */}
+          {isLastQuestion ? (
+            <Button onClick={handleFinish} disabled={!hasAnswered}>
+              Finish
+            </Button>
+          ) : (
+            <Button onClick={handleNext} disabled={!hasAnswered}>
+              Next
+            </Button>
+          )}
         </div>
       </CardContent>
     </Card>

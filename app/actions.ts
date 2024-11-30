@@ -6,6 +6,7 @@ import {
   GENERATE_TRIVIA,
   GET_MOVIE,
   RECOMMEND_MOVIE,
+  UPDATE_GAME_STATUS,
   UPSERT_MOVIE,
 } from '@/lib/queries';
 
@@ -99,6 +100,7 @@ type CreateGameAndInsertQuestionsPayload = {
   movieId: string;
   movieTitle: string;
   questions: any;
+  clerkUserId: string;
 };
 
 export const createGameAndInsertQuestions = async ({
@@ -131,6 +133,19 @@ export const upsertMovie = async (movie: any) => {
       movieReleaseDate: movie.release_date,
       movieOverview: movie.overview,
     },
+  });
+  return { data, errors };
+};
+
+export const updateGameStatus = async ({
+  gameId: gameId,
+}: {
+  gameId: string;
+}) => {
+  console.log('updateGameStatus ACTION', gameId);
+  const { data, errors } = await getClient().mutate({
+    mutation: UPDATE_GAME_STATUS,
+    variables: { gameId },
   });
   return { data, errors };
 };

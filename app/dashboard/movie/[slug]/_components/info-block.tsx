@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { CREATE_GAME, GENERATE_TRIVIA } from '@/lib/queries';
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { format, set } from 'date-fns';
+import { Loader } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
 import { toast } from 'sonner';
@@ -23,6 +24,7 @@ interface InfoBlockProps {
   };
   movieDataAsString: string | null;
   movieId: string;
+  clerkUserId: string;
 }
 
 type TriviaQuestion = {
@@ -37,6 +39,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
   data,
   movieDataAsString,
   movieId,
+  clerkUserId,
 }) => {
   const movie = data.movieById;
   const router = useRouter();
@@ -45,7 +48,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [triviaQuestions, setTriviaQuestions] = useState<TriviaQuestion[]>([]);
   const [loading, setLoading] = useState(false);
-
+  const [buttonText, setButtonText] = useState('Start Trivia');
   // const [generateTrivia, { loading, error, data: triviaData }] = useLazyQuery(
   //   GENERATE_TRIVIA,
   //   {
@@ -101,6 +104,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
         movieId: movieId as string, // Ensure this ID is available and an integer
         movieTitle: data.movieById.title as string,
         questions: cleanedQuestions,
+        clerkUserId: clerkUserId as string,
       };
       console.log('PAYLOAD to backend', payload);
       const gameCreateResponse = await createGameAndInsertQuestions({
@@ -126,12 +130,14 @@ const InfoBlock: FC<InfoBlockProps> = ({
   const handleTriviaClick = async () => {
     console.log('TRIVIA CLICKED');
     setLoading(true);
+    setButtonText('AI Generating Questions');
     const generateTriviaResponse = await generateTrivia({
       prompt: `Here is the content of the movie: ${movieDataAsString}`,
     });
     console.log('TRIVIA RESPONSE', generateTriviaResponse.data);
     toast.success('Trivia questions generated successfully!');
-    toast.success('Sending to backend to generate quiz');
+    toast.success('Questions Generated');
+    setButtonText('Creating Game. Hold Tight!');
     console.log('SENDING QUESTIONS TO BACKEND', generateTriviaResponse.data);
     const createGame = await sendQuestionsToBackend(
       generateTriviaResponse.data,
@@ -174,7 +180,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
         <p>{movie.tagline}</p>
         <div>
           <Button onClick={handleTriviaClick} disabled={loading}>
-            Trivia
+            {loading && <Loader className="size-5 animate-spin" />} {buttonText}
           </Button>
           {/* {movieDataAsString &&
             (() => {

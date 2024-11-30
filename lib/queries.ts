@@ -71,11 +71,13 @@ export const CREATE_GAME = gql`
     $movieId: String!
     $movieTitle: String!
     $questions: [TriviaQuestionInput!]!
+    $clerkUserId: String!
   ) {
     createGameAndInsertQuestions(
       movieId: $movieId
       movieTitle: $movieTitle
       questions: $questions
+      clerkUserId: $clerkUserId
     )
   }
 `;
@@ -171,6 +173,17 @@ export const UPSERT_MOVIE = gql`
       title: $movieTitle
       release_date: $movieReleaseDate
       overview: $movieOverview
+    )
+  }
+`;
+
+
+export const UPDATE_GAME_STATUS = gql`
+  mutation updateGameStatus(
+    $gameId: String!
+  ) {
+    updateGameStatus(
+      gameId: $gameId
     )
   }
 `;

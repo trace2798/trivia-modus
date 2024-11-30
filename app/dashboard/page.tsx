@@ -9,15 +9,15 @@ export const dynamic = 'force-dynamic';
 const Page = async ({}) => {
   const user = await currentUser();
   console.log('USER', user);
-  const { data } = await getClient().query({
-    query: GET_USER_PROFILE,
-    variables: {
-      userId: user?.id,
-      email: user?.emailAddresses[0].emailAddress,
-      name: user?.externalAccounts[0].firstName,
-    },
-  });
-  console.log('DATA', data);
+  // const { data } = await getClient().query({
+  //   query: GET_USER_PROFILE,
+  //   variables: {
+  //     userId: user?.id,
+  //     email: user?.emailAddresses[0].emailAddress,
+  //     name: user?.externalAccounts[0].firstName,
+  //   },
+  // });
+  // console.log('DATA', data);
   const { data: topMovie } = await getClient().query({
     query: GET_TOP_MOVIE,
   });

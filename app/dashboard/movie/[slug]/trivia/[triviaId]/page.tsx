@@ -21,7 +21,10 @@ const Page: FC<PageProps> = async ({ params }) => {
   return (
     <>
       <div className="flex items-center justify-center w-full min-h-screen">
-        <TriviaQuiz questions={data.findQuestionById} />
+        <TriviaQuiz
+          questions={data.findQuestionById}
+          gameId={params.triviaId}
+        />
       </div>
     </>
   );
