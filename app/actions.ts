@@ -6,7 +6,7 @@ import {
   GENERATE_TRIVIA,
   GET_MOVIE,
   RECOMMEND_MOVIE,
-  UPDATE_GAME_STATUS,
+  UPDATE_GAME_STATUS_AND_SCORE,
   UPDATE_USER_ANSWER_WITH_QUESTION_ID,
   UPSERT_MOVIE,
 } from '@/lib/queries';
@@ -138,16 +138,18 @@ export const upsertMovie = async (movie: any) => {
   return { data, errors };
 };
 
-export const updateGameStatus = async ({
+export const updateGameStatusAndScore = async ({
   gameId: gameId,
+  score: score,
 }: {
   gameId: string;
+  score: number;
 }) => {
   console.log('updateGameStatus ACTION', gameId);
   const gameIdInt = parseInt(gameId, 10);
   const { data, errors } = await getClient().mutate({
-    mutation: UPDATE_GAME_STATUS,
-    variables: { gameId: gameIdInt },
+    mutation: UPDATE_GAME_STATUS_AND_SCORE,
+    variables: { gameId: gameIdInt, score },
   });
   return { data, errors };
 };

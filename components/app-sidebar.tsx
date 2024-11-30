@@ -1,5 +1,10 @@
-import { Clapperboard, Film, LayoutDashboard } from 'lucide-react';
-
+import {
+  Clapperboard,
+  Dices,
+  Film,
+  LayoutDashboard,
+  TrendingUpDownIcon,
+} from 'lucide-react';
 import {
   Sidebar,
   SidebarContent,
@@ -9,13 +14,12 @@ import {
   SidebarGroupLabel,
   SidebarMenu,
   SidebarMenuButton,
-  SidebarMenuItem
+  SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { SignOutButton } from '@clerk/nextjs';
 import { auth } from '@clerk/nextjs/server';
 import { Separator } from './ui/separator';
 import UserButton from './user-button';
-// import { UserButton } from "@stackframe/stack";
 
 const items = [
   {
@@ -32,6 +36,11 @@ const items = [
     title: 'Recommend',
     url: '/recommend',
     icon: Clapperboard,
+  },
+  {
+    title: 'Your Stats',
+    url: '/dashboard/stats',
+    icon: TrendingUpDownIcon,
   },
 ];
 

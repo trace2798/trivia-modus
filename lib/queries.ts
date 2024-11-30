@@ -177,18 +177,11 @@ export const UPSERT_MOVIE = gql`
   }
 `;
 
-export const UPDATE_GAME_STATUS = gql`
-  mutation updateGameStatus($gameId: Int!) {
-    updateGameStatus(gameId: $gameId)
+export const UPDATE_GAME_STATUS_AND_SCORE = gql`
+  mutation updateGameStatusAndScore($gameId: Int!, $score: Int!) {
+    updateGameStatusAndScore(gameId: $gameId, score: $score)
   }
 `;
-
-// updateUserAnswerWithQuestion
-// questionId: Int!
-// answer: String!
-// isCorrect: Boolean!
-// : String!
-// upsertMovie
 
 export const UPDATE_USER_ANSWER_WITH_QUESTION_ID = gql`
   mutation updateUserAnswerWithQuestionId(
@@ -201,5 +194,23 @@ export const UPDATE_USER_ANSWER_WITH_QUESTION_ID = gql`
       answer: $answer
       isCorrect: $isCorrect
     )
+  }
+`;
+
+export const GET_GAMES_BY_USER = gql`
+  query ($userId: String!) {
+    gamesByUserId(userId: $userId) {
+      id
+      movie_title
+      status
+      score
+      created_at
+      questions {
+        question_text
+        correct_answer
+        player_answer
+        difficulty
+      }
+    }
   }
 `;

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
 import {
-  updateGameStatus,
+  updateGameStatusAndScore,
   updateUserAnswerWithQuestionId,
 } from '@/app/actions';
 
@@ -49,9 +49,20 @@ const TriviaQuiz = ({
       answer,
       currentQuestion.correct_answer,
     );
+    const difficultyIncrement: Record<'easy' | 'medium' | 'hard', number> = {
+      easy: 1,
+      medium: 2,
+      hard: 3,
+    };
+
     if (answer === currentQuestion.correct_answer) {
-      setScore(score + 1);
+      const increment =
+        difficultyIncrement[
+          currentQuestion.difficulty as 'easy' | 'medium' | 'hard'
+        ] || 0;
+      setScore(score + increment);
     }
+
     await updateUserAnswerWithQuestionId({
       questionId: currentQuestion.id,
       answer,
@@ -69,17 +80,19 @@ const TriviaQuiz = ({
     }
   };
 
-  const handleRestart = async () => {
-    setCurrentQuestionIndex(0);
-    setSelectedAnswer('');
-    setScore(0);
-    setShowResult(false);
-    setHasAnswered(false);
-  };
+  // const handleRestart = async () => {
+  //   setCurrentQuestionIndex(0);
+  //   setSelectedAnswer('');
+  //   setScore(0);
+  //   setShowResult(false);
+  //   setHasAnswered(false);
+  // };
+
+  const handleGenerateNewGame = async () => {};
 
   const handleFinish = async () => {
     setShowResult(true);
-    await updateGameStatus({ gameId });
+    await updateGameStatusAndScore({ gameId, score: score });
   };
   const getOptionStyle = (option: string) => {
     if (!hasAnswered) return 'text-primary';
@@ -117,10 +130,12 @@ const TriviaQuiz = ({
             Your score: {score} out of {validQuestions.length}
           </p>
           <div className="flex flex-col items-center md:flex-row md:justify-between">
-            <Button onClick={handleRestart}>Restart Quiz</Button>
             <a href="/dashboard" className="mt-4 md:mt-0">
-              <Button onClick={handleRestart}>Back To Dashboard</Button>
+              <Button variant="outline">Back To Dashboard</Button>
             </a>
+            <Button onClick={handleGenerateNewGame}>
+              Generate Another Game
+            </Button>
           </div>
         </CardContent>
       </Card>
@@ -132,8 +147,7 @@ const TriviaQuiz = ({
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>
-            Question {currentQuestionIndex + 1} of {validQuestions.length}. DB
-            NUMBER is {currentQuestion.id}
+            Question {currentQuestionIndex + 1} of {validQuestions.length}
           </span>
           <span className="text-sm">Score: {score}</span>
         </CardTitle>

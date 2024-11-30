@@ -46,56 +46,11 @@ const InfoBlock: FC<InfoBlockProps> = ({
   const formattedDate = format(new Date(movie.release_date), 'MMMM d, yyyy');
   const maxStars = 10;
   const stars = Math.round((movie.vote_average / 10) * maxStars);
-  const [triviaQuestions, setTriviaQuestions] = useState<TriviaQuestion[]>([]);
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState('Start Trivia');
-  // const [generateTrivia, { loading, error, data: triviaData }] = useLazyQuery(
-  //   GENERATE_TRIVIA,
-  //   {
-  //     fetchPolicy: "no-cache",
-  //     onCompleted: (data) => {
-  //       console.log("Trivia DATA from LLM", data.generateTrivia);
-  //       if (data.generateTrivia) {
-  //         try {
-  //           setTriviaQuestions(data.generateTrivia);
-  // toast.success("Trivia questions generated successfully!");
-  // toast.success("Sending to backend to generate quiz");
-  // sendQuestionsToBackend(data.generateTrivia);
-  //         } catch (e) {
-  //           console.error("Failed to parse JSON:", e);
-  //           toast.error("Failed to parse trivia questions.");
-  //         }
-  //       } else {
-  //         console.error("No movie information found:", data);
-  //         toast.error("Failed to generate trivia questions.");
-  //       }
-  //     },
-  //   }
-  // );
-  // const [
-  //   createGameAndInsertQuestions,
-  //   { data: mutationData, loading: mutationLoading, error: mutationError },
-  // ] = useMutation(CREATE_GAME, {
-  //   onCompleted: (data) => {
-  //     console.log("Mutation completed:", data);
-  //     console.log("Game created with ID:", data.createGameAndInsertQuestions);
-  //     toast.success(
-  //       `Game created successfully! Game ID: ${data.createGameAndInsertQuestions}`
-  //     );
-  //     router.push(
-  //       `/dashboard/movie/${movieId}/trivia/${data.createGameAndInsertQuestions}`
-  //     );
-  //     // Proceed with navigation or other actions
-  //   },
-  //   onError: (error) => {
-  //     console.error("Error creating game:", error);
-  //     toast.error("Error saving game and trivia questions.");
-  //   },
-  // });
+ 
   const sendQuestionsToBackend = async (questions: any) => {
     try {
-      console.log('SENDING QUESTIONS TO BACKEND', questions);
-      console.log('TRIVIA QUESTIONS', triviaQuestions);
       const cleanedQuestions = questions.generateTrivia.map(
         ({ __typename, ...q }: { __typename?: string }) => q,
       );
@@ -143,7 +98,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
       generateTriviaResponse.data,
     );
     console.log('CREATE GAME RESPONSE', createGame);
-    setLoading(false);
+    // setLoading(false);
   };
 
   return (
