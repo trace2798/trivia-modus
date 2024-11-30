@@ -180,7 +180,7 @@ export const UPSERT_MOVIE = gql`
 
 export const UPDATE_GAME_STATUS = gql`
   mutation updateGameStatus(
-    $gameId: String!
+    $gameId: Int!
   ) {
     updateGameStatus(
       gameId: $gameId

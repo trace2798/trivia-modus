@@ -143,9 +143,10 @@ export const updateGameStatus = async ({
   gameId: string;
 }) => {
   console.log('updateGameStatus ACTION', gameId);
+  const gameIdInt = parseInt(gameId, 10);
   const { data, errors } = await getClient().mutate({
     mutation: UPDATE_GAME_STATUS,
-    variables: { gameId },
+    variables: { gameId: gameIdInt },
   });
   return { data, errors };
 };
