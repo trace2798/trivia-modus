@@ -88,7 +88,7 @@ const TriviaQuiz = ({
   //   setHasAnswered(false);
   // };
 
-  const handleGenerateNewGame = async () => {};
+  // const handleGenerateNewGame = async () => {};
 
   const handleFinish = async () => {
     setShowResult(true);
@@ -133,9 +133,9 @@ const TriviaQuiz = ({
             <a href="/dashboard" className="mt-4 md:mt-0">
               <Button variant="outline">Back To Dashboard</Button>
             </a>
-            <Button onClick={handleGenerateNewGame}>
+            {/* <Button onClick={handleGenerateNewGame}>
               Generate Another Game
-            </Button>
+            </Button> */}
           </div>
         </CardContent>
       </Card>
