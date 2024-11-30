@@ -177,13 +177,29 @@ export const UPSERT_MOVIE = gql`
   }
 `;
 
-
 export const UPDATE_GAME_STATUS = gql`
-  mutation updateGameStatus(
-    $gameId: Int!
+  mutation updateGameStatus($gameId: Int!) {
+    updateGameStatus(gameId: $gameId)
+  }
+`;
+
+// updateUserAnswerWithQuestion
+// questionId: Int!
+// answer: String!
+// isCorrect: Boolean!
+// : String!
+// upsertMovie
+
+export const UPDATE_USER_ANSWER_WITH_QUESTION_ID = gql`
+  mutation updateUserAnswerWithQuestionId(
+    $questionId: Int!
+    $answer: String!
+    $isCorrect: Boolean!
   ) {
-    updateGameStatus(
-      gameId: $gameId
+    updateUserAnswerWithQuestionId(
+      questionId: $questionId
+      answer: $answer
+      isCorrect: $isCorrect
     )
   }
 `;

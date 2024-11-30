@@ -4,7 +4,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
-import { updateGameStatus } from '@/app/actions';
+import {
+  updateGameStatus,
+  updateUserAnswerWithQuestionId,
+} from '@/app/actions';
 
 type TriviaQuestion = {
   id: string;
@@ -36,15 +39,24 @@ const TriviaQuiz = ({
   const currentQuestion = validQuestions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === validQuestions.length - 1;
 
-  const handleAnswerSelect = (answer: string) => {
+  const handleAnswerSelect = async (answer: string) => {
     if (hasAnswered) return; // Prevent changing answer after selection
 
     setSelectedAnswer(answer);
     setHasAnswered(true);
-
+    console.log(
+      'SELECTED ANSWER BY USER',
+      answer,
+      currentQuestion.correct_answer,
+    );
     if (answer === currentQuestion.correct_answer) {
       setScore(score + 1);
     }
+    await updateUserAnswerWithQuestionId({
+      questionId: currentQuestion.id,
+      answer,
+      isCorrect: answer === currentQuestion.correct_answer,
+    });
   };
 
   const handleNext = () => {
@@ -154,9 +166,6 @@ const TriviaQuiz = ({
             Difficulty:{' '}
             <span className="capitalize">{currentQuestion.difficulty}</span>
           </div>
-          {/* <Button onClick={handleNext} disabled={!hasAnswered}>
-            {isLastQuestion ? 'Finish' : 'Next'}
-          </Button> */}
           {isLastQuestion ? (
             <Button onClick={handleFinish} disabled={!hasAnswered}>
               Finish

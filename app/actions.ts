@@ -7,6 +7,7 @@ import {
   GET_MOVIE,
   RECOMMEND_MOVIE,
   UPDATE_GAME_STATUS,
+  UPDATE_USER_ANSWER_WITH_QUESTION_ID,
   UPSERT_MOVIE,
 } from '@/lib/queries';
 
@@ -147,6 +148,23 @@ export const updateGameStatus = async ({
   const { data, errors } = await getClient().mutate({
     mutation: UPDATE_GAME_STATUS,
     variables: { gameId: gameIdInt },
+  });
+  return { data, errors };
+};
+
+export const updateUserAnswerWithQuestionId = async ({
+  questionId: questionId,
+  answer: answer,
+  isCorrect: isCorrect,
+}: {
+  questionId: string;
+  answer: string;
+  isCorrect: boolean;
+}) => {
+  const questionIdInt = parseInt(questionId, 10);
+  const { data, errors } = await getClient().mutate({
+    mutation: UPDATE_USER_ANSWER_WITH_QUESTION_ID,
+    variables: { questionId: questionIdInt, answer, isCorrect },
   });
   return { data, errors };
 };
