@@ -17,9 +17,11 @@ const Page: FC<PageProps> = ({}) => {
               Movie Recommendation using Modus Collection
             </h2>
             <h3 className="text-primary/80">
-              <span className='text-primary font-medium'>Describe{" "}</span>
-              the type of <span className='text-primary font-medium'>movie{" "}</span>
-              you want to <span className='text-primary font-medium'>{" "}watch</span>
+              <span className="text-primary font-medium">Describe </span>
+              the type of{' '}
+              <span className="text-primary font-medium">movie </span>
+              you want to{' '}
+              <span className="text-primary font-medium"> watch</span>
             </h3>
           </div>
           <Separator />

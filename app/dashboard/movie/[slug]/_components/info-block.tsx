@@ -48,7 +48,7 @@ const InfoBlock: FC<InfoBlockProps> = ({
   const stars = Math.round((movie.vote_average / 10) * maxStars);
   const [loading, setLoading] = useState(false);
   const [buttonText, setButtonText] = useState('Start Trivia');
- 
+
   const sendQuestionsToBackend = async (questions: any) => {
     try {
       const cleanedQuestions = questions.generateTrivia.map(
