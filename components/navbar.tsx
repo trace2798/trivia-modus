@@ -11,15 +11,15 @@ const Navbar: FC<NavbarProps> = ({}) => {
   console.log('USER Navbar', user.user);
   return (
     <>
-      <nav className="h-16 flex items-center border-b-2">
+      <nav className="h-16 flex items-center border-b-2 px-[5vw]">
         <div className="flex flex-row justify-between items-center w-full max-w-7xl mx-auto">
           <Link href={`/`}>
-            <div className="text-3xl">Rec & Triv</div>
+            <div className="text-3xl font-semibold">Rec & Triv</div>
           </Link>
           <div>
             {user.isSignedIn ? (
               <Link href={`/dashboard`}>
-                <Button>Dashboard</Button>
+                <Button variant={'secondary'}>Dashboard</Button>
               </Link>
             ) : (
               <>

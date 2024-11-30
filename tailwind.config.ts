@@ -71,6 +71,9 @@ const config: Config = {
           ring: 'hsl(var(--sidebar-ring))',
         },
       },
+      fontFamily: {
+        quicksand: 'quicksand-Variable',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

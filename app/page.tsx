@@ -10,7 +10,7 @@ export default async function Home() {
       <Navbar />
       <main className="flex flex-col min-h-[90vh] space-y-6 p-12 w-full max-w-7xl mx-auto justify-evenly">
         <div className="flex flex-col space-y-3">
-          <h1 className="text-5xl">Rec & Triv</h1>
+          <h1 className="text-5xl font-semibold">Rec & Triv</h1>
           <div className="flex flex-col space-y-1">
             <h2 className="text-primary/80 text-lg">
               This application is my submission for{' '}
@@ -66,8 +66,8 @@ export default async function Home() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
-          <section className="flex flex-col items-center justify-center text-center bg-purple-500 text-white p-8 rounded-lg shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <section className="flex flex-col items-center justify-center text-center  bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-8 rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold mb-4">
               Discover Movies You Will Love
             </h1>
@@ -76,26 +76,26 @@ export default async function Home() {
               <span>Made using Modus Collection</span>
             </p>
             <Link href={`/recommend`}>
-              <button className="bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition">
+              <button className="bg-blue-900 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition">
                 Explore Movies
               </button>
             </Link>
           </section>
 
-          <section className="flex flex-col items-center justify-center text-center bg-orange-500 text-white p-8 rounded-lg shadow-lg">
+          <section className="flex flex-col items-center justify-center text-center bg-gradient-to-r from-orange-500 to-pink-500 text-white p-8 rounded-lg shadow-lg">
             <h1 className="text-3xl font-bold mb-4">Play Movie Trivia</h1>
             <p className="text-lg mb-6 flex flex-col">
               <span>Test your movie knowledge</span>
             </p>
             {user.userId ? (
               <Link href={`/dashboard`} className="">
-                <button className="bg-yellow-500 text-white py-2 px-4 rounded-md hover:bg-yellow-600 transition">
+                <button className="bg-green-900 text-white py-2 px-4 rounded-md hover:bg-pink-900 transition">
                   Start Trivia
                 </button>
               </Link>
             ) : (
               <Link href={`/sign-in`} className="">
-                <button className="bg-orange-700 text-white py-2 px-4 rounded-md hover:bg-yellow-600 transition">
+                <button className="bg-green-700 text-white py-2 px-4 rounded-md hover:bg-pink-900 transition">
                   Login to to Play
                 </button>
               </Link>

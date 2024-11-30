@@ -102,3 +102,15 @@
     @apply bg-background text-foreground;
   }
 }
+
+@font-face {
+  font-family: 'Quicksand-Variable';
+  src:
+    url('../public/assets/fonts/Quicksand-Variable.woff2') format('woff2'),
+    url('../public/assets/fonts/Quicksand-Variable.woff') format('woff'),
+    url('../public/assets/fonts/Quicksand-Variable.ttf') format('truetype');
+  font-weight: 100 900; /* Define the range of weights available */
+  /* font-stretch: 75% 100%; Optional, define the range of widths (if available) */
+  font-display: swap;
+  font-style: normal;
+}
