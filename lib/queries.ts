@@ -116,33 +116,7 @@ export const GET_QUESTIONS_BY_GAME_ID = gql`
   }
 `;
 
-export const GENERATE_TRIVIA_TOP_MOVIE = gql`
-  query ($title: String!, $overview: String!, $releaseDate: String!) {
-    generateTriviaFromData(
-      title: $title
-      overview: $overview
-      releaseDate: $releaseDate
-    ) {
-      question
-      options
-      answer
-    }
-  }
-`;
 
-export const CREATE_GAME_TOP = gql`
-  mutation createGameAndInsertQuestionsTop(
-    $movieId: String!
-    $movieTitle: String!
-    $questions: [TriviaQuestionStaticInput!]!
-  ) {
-    createGameAndInsertQuestionsTop(
-      movieId: $movieId
-      movieTitle: $movieTitle
-      questions: $questions
-    )
-  }
-`;
 
 export const RECOMMEND_MOVIE = gql`
   query ($query: String!) {
