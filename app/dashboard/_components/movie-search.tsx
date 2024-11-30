@@ -6,16 +6,23 @@ import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
 import Link from 'next/link';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { toast } from 'sonner';
+import { useDebounce } from 'use-debounce';
 
 interface MovieSearchProps {}
 
 const MovieSearch: FC<MovieSearchProps> = ({}) => {
   const [movieName, setMovieName] = useState('');
+  const [debouncedMovieName] = useDebounce(movieName, 2000);
   const [movieInfo, setMovieInfo] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  useEffect(() => {
+    if (debouncedMovieName.trim()) {
+      handleSearch();
+    }
+  }, [debouncedMovieName]);
   // const [getMovie, { loading, error }] = useLazyQuery(GET_MOVIE, {
   //   fetchPolicy: "no-cache",
   //   onError: (err) => toast.error("Something went wrong. Try Again"),
@@ -65,19 +72,38 @@ const MovieSearch: FC<MovieSearchProps> = ({}) => {
           value={movieName}
           onChange={(e) => setMovieName(e.target.value)}
         />
-        <Button
+        {/* <Button
           onClick={handleSearch}
           disabled={loading || !movieName.trim()}
           className="max-w-[200px]"
         >
           {loading ? 'Loading...' : 'Search Movie'}
-        </Button>
+        </Button> */}
         {error && <p className="text-red-500">{error}</p>}
       </div>
       <div>
         {loading && (
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-10">
             {' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
+            <Skeleton className="size-60 mt-5" />{' '}
             <Skeleton className="size-60 mt-5" />{' '}
           </div>
         )}
