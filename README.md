@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Rec & Triv
 
-## Getting Started
+Rec & Triv is a web application that offers personalized movie recommendations and engaging trivia games based on selected movies. Discover new films and test your knowledge all in one place! This is my official submission to the [Modus Hackathon 2024](https://hashnode.com/hackathons/hypermode), hosted in [Hashnode](https://hashnode.com).
 
-First, run the development server:
+Detail Article [Rec & Triv](https://shreyas-chaliha.hashnode.dev/rec-triv)
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Movie Recommendations: Get tailored movie suggestions using Modus Collections.
+Trivia Games: Play trivia games generated from selected movies.
+Interactive Experience: Combine the fun of discovering movies with the challenge of trivia.
+AI-Powered Questions: Trivia questions are generated using the Meta Llama 3.1 8B AI model.
+
+## Technologies Used
+
+Frontend: Next.js 14 for a seamless user interface.
+Backend: Modus hosted on Hypermode for a robust backend infrastructure.
+Data Sources:
+TMDB API for movie data.
+Wikipedia for additional movie information.
+AI Model: Meta Llama 3.1 8B hosted on Hypermode for generating trivia questions.
+
+## Installation
+
+Clone the Repository
+```code
+git clone https://github.com/trace2798/trivia-modus.git
+```
+Navigate to the Project Directory
+
+```code
+cd rec-and-triv
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```code
+npm install
+```
+Set Up Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create a .env file in the root directory and add the following:
 
-## Learn More
+```code
+MODUS_API_BASE=your hosted server link
+MODUS_API_KEY=your_modus_api_key
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run the Application
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```code
+    npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Access the Application
 
-## Deploy on Vercel
+Open your browser and navigate to http://localhost:3000.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Get Recommendations: Navigate to the recommendations section to receive personalized movie suggestions.
+Play Trivia: Select a movie and start the trivia game to test your knowledge.
+Feedback: Use the feedback form to share your thoughts and help improve the application.
+
+License
+
+This project is licensed under the MIT License.
