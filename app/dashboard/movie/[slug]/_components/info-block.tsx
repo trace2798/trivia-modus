@@ -1,9 +1,7 @@
 'use client';
 import { createGameAndInsertQuestions, generateTrivia } from '@/app/actions';
 import { Button } from '@/components/ui/button';
-import { CREATE_GAME, GENERATE_TRIVIA } from '@/lib/queries';
-import { useLazyQuery, useMutation } from '@apollo/client';
-import { format, set } from 'date-fns';
+import { format } from 'date-fns';
 import { Loader } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
@@ -27,13 +25,6 @@ interface InfoBlockProps {
   clerkUserId: string;
 }
 
-type TriviaQuestion = {
-  question: string;
-  options: string[];
-  answer: string;
-  difficulty: string;
-  category: string;
-};
 
 const InfoBlock: FC<InfoBlockProps> = ({
   data,
@@ -128,53 +119,21 @@ const InfoBlock: FC<InfoBlockProps> = ({
             </div>
             <span>{movie.vote_average.toFixed(1)}</span>
           </div>
+          <p>{movie.tagline}</p>
         </div>
         <p className="text-sm md:text-lg max-w-3xl leading-relaxed">
+          <span>
+            <strong>Overview:</strong>{' '}
+          </span>{' '}
           {movie.overview}
         </p>
-        <p>{movie.tagline}</p>
+
         <div>
           <Button onClick={handleTriviaClick} disabled={loading}>
             {loading && <Loader className="size-5 animate-spin" />} {buttonText}
           </Button>
-          {/* {movieDataAsString &&
-            (() => {
-              const parsedMovieData = JSON.parse(movieDataAsString); // Parse the JSON string
-              return parsedMovieData.moviePlot &&
-                parsedMovieData.moviePlot !== "Plot not available" ? (
-                <Button
-                  onClick={handleTriviaClick}
-                  disabled={loading || mutationLoading}
-                >
-                  {loading || mutationLoading
-                    ? "Generating Trivia..."
-                    : "Start Trivia"}
-                </Button>
-              ) : null;
-            })()} */}
-          {/* {error && <p className="text-red-500">Error: {error.message}</p>} */}
         </div>
       </div>
-      {/* {triviaQuestions && (
-        <div className="bg-black p-4 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold mb-4">Trivia Questions</h2>
-          <div className="space-y-4">
-            {triviaQuestions.map((question: TriviaQuestion, index: number) => (
-              <div key={index} className="p-4 rounded-lg">
-                <p className="text-lg font-semibold">{question.question}</p>
-                <ul>
-                  {question.options.map((option, idx) => (
-                    <li key={idx}>{option}</li>
-                  ))}
-                </ul>
-                <p className="text-sm">Answer: {question.answer}</p>
-                <p className="text-sm">Difficulty: {question.difficulty}</p>
-                <p className="text-sm">Category: {question.category}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };

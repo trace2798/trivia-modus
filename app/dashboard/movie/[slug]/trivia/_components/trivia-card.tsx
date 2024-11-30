@@ -8,6 +8,7 @@ import {
   updateGameStatusAndScore,
   updateUserAnswerWithQuestionId,
 } from '@/app/actions';
+import { Badge } from '@/components/ui/badge';
 
 type TriviaQuestion = {
   id: string;
@@ -111,7 +112,7 @@ const TriviaQuiz = ({
 
   if (validQuestions.length === 0) {
     return (
-      <Card className="w-full max-w-2xl mx-auto mt-8">
+      <Card className="w-full max-w-2xl mx-auto mt-8 z-50 backdrop-blur-sm">
         <CardContent className="p-6">
           <p className="text-center">No valid questions available.</p>
         </CardContent>
@@ -121,9 +122,9 @@ const TriviaQuiz = ({
 
   if (showResult) {
     return (
-      <Card className="w-full max-w-2xl mx-auto mt-8">
+      <Card className="w-screen max-w-sm mx-auto  backdrop-blur-sm z-50">
         <CardHeader>
-          <CardTitle className="text-center">Quiz Complete!</CardTitle>
+          <CardTitle className="text-center text-xl">Quiz Complete!</CardTitle>
         </CardHeader>
         <CardContent className="p-6">
           <p className="text-center text-xl mb-4">
@@ -143,7 +144,7 @@ const TriviaQuiz = ({
   }
 
   return (
-    <Card className="w-full max-w-2xl mx-auto mt-8">
+    <Card className="w-full max-w-2xl mx-auto mt-8 z-50 backdrop-blur-3xl bg-inherit border-none">
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>
@@ -176,10 +177,10 @@ const TriviaQuiz = ({
           </RadioGroup>
         </div>
         <div className="flex justify-between items-center">
-          <div className="text-sm">
+          <Badge className="text-sm">
             Difficulty:{' '}
             <span className="capitalize">{currentQuestion.difficulty}</span>
-          </div>
+          </Badge>
           {isLastQuestion ? (
             <Button onClick={handleFinish} disabled={!hasAnswered}>
               Finish

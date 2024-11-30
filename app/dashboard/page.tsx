@@ -23,6 +23,7 @@ const Page = async ({}) => {
           </h2>
           <h3 className="text-primary/80 text-lg">
             Select a movie from below or search for your favorite movie to play
+            trivia
           </h3>
         </div>
         <Separator />
