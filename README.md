@@ -3,6 +3,7 @@
 Rec & Triv is a web application that offers personalized movie recommendations and engaging trivia games based on selected movies. Discover new films and test your knowledge all in one place! This is my official submission to the [Modus Hackathon 2024](https://hashnode.com/hackathons/hypermode), hosted in [Hashnode](https://hashnode.com).
 
 Detail Article [Rec & Triv](https://shreyas-chaliha.hashnode.dev/rec-triv)
+
 ## Features
 
 Movie Recommendations: Get tailored movie suggestions using Modus Collections.
@@ -22,9 +23,11 @@ AI Model: Meta Llama 3.1 8B hosted on Hypermode for generating trivia questions.
 ## Installation
 
 Clone the Repository
+
 ```code
 git clone https://github.com/trace2798/trivia-modus.git
 ```
+
 Navigate to the Project Directory
 
 ```code
@@ -36,6 +39,7 @@ cd rec-and-triv
 ```code
 npm install
 ```
+
 Set Up Environment Variables
 
 Create a .env file in the root directory and add the following:
