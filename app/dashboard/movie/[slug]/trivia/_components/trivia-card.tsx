@@ -81,14 +81,6 @@ const TriviaQuiz = ({
     }
   };
 
-  // const handleRestart = async () => {
-  //   setCurrentQuestionIndex(0);
-  //   setSelectedAnswer('');
-  //   setScore(0);
-  //   setShowResult(false);
-  //   setHasAnswered(false);
-  // };
-
   // const handleGenerateNewGame = async () => {};
 
   const handleFinish = async () => {
@@ -127,9 +119,7 @@ const TriviaQuiz = ({
           <CardTitle className="text-center text-xl">Quiz Complete!</CardTitle>
         </CardHeader>
         <CardContent className="p-6">
-          <p className="text-center text-xl mb-4">
-            Your score: {score} out of {validQuestions.length}
-          </p>
+          <p className="text-center text-xl mb-4">Your scored: {score}</p>
           <div className="flex flex-col items-center md:flex-row md:justify-between">
             <a href="/dashboard" className="mt-4 md:mt-0">
               <Button variant="outline">Back To Dashboard</Button>
