@@ -3,6 +3,7 @@ import {
   Dices,
   Film,
   LayoutDashboard,
+  Search,
   TrendingUpDownIcon,
 } from 'lucide-react';
 import {
@@ -29,9 +30,9 @@ const items = [
     icon: LayoutDashboard,
   },
   {
-    title: 'Trivia',
+    title: 'Search Movie',
     url: '/dashboard/movie',
-    icon: Film,
+    icon: Search,
   },
   {
     title: 'Recommend',
