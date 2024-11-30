@@ -114,3 +114,17 @@
   font-display: swap;
   font-style: normal;
 }
+
+.custom-gradient-right {
+  background: linear-gradient(90deg, #f97316, #ec4899, #f97316);
+  background-size: 200% 200%;
+}
+
+.custom-gradient-left {
+  background: linear-gradient(
+    to right,
+    #06b6d4,
+    #3b82f6
+  ); /* cyan-500 to blue-500 */
+  background-size: 200% 200%; /* Ensure enough space for animation */
+}

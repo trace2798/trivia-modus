@@ -67,7 +67,7 @@ export default async function Home() {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <section className="flex flex-col items-center justify-center text-center  bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-8 rounded-lg shadow-lg">
+          <section className="flex flex-col items-center justify-center text-center custom-gradient-left text-white p-8 rounded-lg shadow-lg animate-gradientAnimation ">
             <h1 className="text-3xl font-bold mb-4">
               Discover Movies You Will Love
             </h1>
@@ -82,7 +82,7 @@ export default async function Home() {
             </Link>
           </section>
 
-          <section className="flex flex-col items-center justify-center text-center bg-gradient-to-r from-orange-500 to-pink-500 text-white p-8 rounded-lg shadow-lg">
+          <section className="flex flex-col items-center justify-center text-center custom-gradient-right text-white p-8 rounded-lg shadow-lg animate-gradientAnimation">
             <h1 className="text-3xl font-bold mb-4">Play Movie Trivia</h1>
             <p className="text-lg mb-6 flex flex-col">
               <span>Test your movie knowledge</span>

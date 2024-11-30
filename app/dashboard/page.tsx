@@ -9,15 +9,6 @@ export const dynamic = 'force-dynamic';
 const Page = async ({}) => {
   const user = await currentUser();
   console.log('USER', user);
-  // const { data } = await getClient().query({
-  //   query: GET_USER_PROFILE,
-  //   variables: {
-  //     userId: user?.id,
-  //     email: user?.emailAddresses[0].emailAddress,
-  //     name: user?.externalAccounts[0].firstName,
-  //   },
-  // });
-  // console.log('DATA', data);
   const { data: topMovie } = await getClient().query({
     query: GET_TOP_MOVIE,
   });
@@ -25,11 +16,14 @@ const Page = async ({}) => {
   return (
     <>
       <div className="flex flex-col text-4xl p-12 space-y-6">
-        <div className="flex flex-col space-y-3">
+        <div className="flex flex-col">
           <h1>Welcome</h1>
           <h2 className="text-primary/80 text-lg">
             The movies below are the 20 top rated movies from the tmdb api
           </h2>
+          <h3 className="text-primary/80 text-lg">
+            Select a movie from below or search for your favorite movie to play
+          </h3>
         </div>
         <Separator />
       </div>

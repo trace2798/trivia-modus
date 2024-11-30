@@ -20,6 +20,7 @@ import { SignOutButton } from '@clerk/nextjs';
 import { auth } from '@clerk/nextjs/server';
 import { Separator } from './ui/separator';
 import UserButton from './user-button';
+import Link from 'next/link';
 
 const items = [
   {
@@ -51,9 +52,11 @@ export async function AppSidebar() {
     <Sidebar>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel className="text-3xl text-primary font-semibold">
-            Rec & Triv
-          </SidebarGroupLabel>
+          <Link href="/">
+            <SidebarGroupLabel className="text-3xl text-primary font-semibold">
+              Rec & Triv
+            </SidebarGroupLabel>
+          </Link>
           <Separator className="w-full my-3" />
           <SidebarGroupContent className="mt-3">
             <SidebarMenu className="flex flex-col space-y-3">
