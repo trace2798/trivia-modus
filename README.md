@@ -63,7 +63,7 @@ Usage
 
 Get Recommendations: Navigate to the recommendations section to receive personalized movie suggestions.
 Play Trivia: Select a movie and start the trivia game to test your knowledge.
-Feedback: Use the feedback form to share your thoughts and help improve the application.
+
 
 License
 
