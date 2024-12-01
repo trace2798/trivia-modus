@@ -130,7 +130,7 @@ export default async function Home() {
             </p>
           </a>
           <a
-            href="https://github.com/trace2798/steady-sequence"
+            href="https://github.com/trace2798/steady-sequence/tree/main"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-500"
