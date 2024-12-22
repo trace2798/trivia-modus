@@ -2,21 +2,36 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/sonner';
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
 import localFont from 'next/font/local';
+import './globals.css';
 
 const quicksand = localFont({
   src: '../public/assets/fonts/Quicksand-Variable.woff2',
   display: 'swap',
 });
 
-const inter = Inter({ subsets: ['latin'] });
-
 export const metadata: Metadata = {
   title: 'Rec & Triv',
   description:
     'Rec & Triv is my submission for Modus Hackathon 2024 hosted on Hashnode.',
+  openGraph: {
+    title: 'Rec & Triv',
+    description:
+      'Rec & Triv is my submission for Modus Hackathon 2024 hosted on Hashnode.',
+    url: `https://recntriv.vercel.app/`,
+    siteName: 'recntriv.vercel.app',
+    images: [
+      {
+        url: `https://recntriv.vercel.app/og.png`,
+        width: 1200,
+        height: 675,
+      },
+    ],
+  },
+  twitter: {
+    title: 'Rec & Triv',
+    card: 'summary_large_image',
+  },
 };
 
 export default function RootLayout({
