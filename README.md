@@ -64,7 +64,6 @@ Usage
 Get Recommendations: Navigate to the recommendations section to receive personalized movie suggestions.
 Play Trivia: Select a movie and start the trivia game to test your knowledge.
 
-
 License
 
 This project is licensed under the MIT License.

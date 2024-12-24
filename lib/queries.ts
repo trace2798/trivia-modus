@@ -116,8 +116,6 @@ export const GET_QUESTIONS_BY_GAME_ID = gql`
   }
 `;
 
-
-
 export const RECOMMEND_MOVIE = gql`
   query ($query: String!) {
     searchMovie(query: $query) {

@@ -49,7 +49,6 @@ export default function RootLayout({
           type="font/woff2"
         />
       </head>
-      {/* light, regular, medium, semibold, bold */}
       <html lang="en">
         <body className={quicksand.className}>
           <ThemeProvider
